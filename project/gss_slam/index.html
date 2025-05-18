@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+    content="GSS-SLAM: Gaussian Splatting SLAM for Multi-Camera Systemss.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GSS-SLAM: Gaussian Splatting SLAM for Multi-Camera Systemss</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1WYQRMQV0T"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-1WYQRMQV0T');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  <script src="./static/js/video_comparison.js"></script>
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐱</text></svg>">
+</head>
+
+<body>
+  <style>
+        .image-comparison {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0px;
+        }
+        .image-comparison img {
+            width: 50%;
+            object-fit: cover;
+        }
+  </style>
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+
+            <h1 class="title is-1 publication-title">GSS-SLAM: Gaussian Splatting SLAM<br /> for Multi-Camera Systems</h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                Zhihao Cao<sup>1</sup>,</span>
+              <span class="author-block">
+                Li Wa Tang<sup>1</sup>,</span>
+              <span class="author-block">
+                Zizhou Luo<sup>2</sup>,</span>
+              <span class="author-block">
+                Hanyu Wu<sup>1</sup>,</span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><sup>1</sup>ETH Zurich</span>
+              <span class="author-block"><sup>2</sup>University of Zurich</span>
+            </div>
+
+            <div class="is-size-5 publication-venue">
+              ETH Zurich 3DV 2025
+            </div>
+
+            <br>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                Supervisor:</span>
+              <span class="author-block">
+                Zihan Zhu,</span>
+              <span class="author-block">
+                Wei Zhang</span>
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <!-- PDF Link. -->
+                <span class="link-block">
+                  <a href="" class="external-link button is-normal is-rounded is-dark" title="Code">
+                    <span class="icon">
+                        <i class="fab fa-github"></i>
+                    </span>
+                    <span>Paper [coming soon]</span>
+                    </a>
+                </span>
+                <span class="link-block">
+                  <a href="" class="external-link button is-normal is-rounded is-dark" title="Code">
+                    <span class="icon">
+                        <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code and data [coming soon]</span>
+                    </a>
+                </span>
+
+                <!--
+                <span class="link-block">
+                  <a class="external-link button is-normal is-rounded is-dark" title="Coming soon!" disabled>
+                    <span class="icon">
+                        <i class="far fa-images"></i>
+                    </span>
+                    <span>Data</span>
+                    </a>
+                  </span> -->
+    
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+        <video id="teaser" width="100%" playsinline controls autoplay loop muted>
+            <source src="static/videos/introduction.mp4" type="video/mp4" />
+        </video>
+        <script>
+            document.getElementById('teaser').play();
+        </script>
+    </div>
+  </section>
+
+  <hr />
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Abstract. -->
+      <h2 class="title is-3">Abstract</h2>
+      <div class="content has-text-justified">
+        <p>
+          Simultaneous Localization and Mapping (SLAM) has become a fundamental technology 
+          for autonomous navigation and 3D scene reconstruction in robotics and computer vision. 
+          Traditional SLAM approaches have primarily focused on sparse, feature-based methods. While these methods offer efficient pose estimation, 
+          they often suffer from limited scene representation and cannot capture fine geometric details, especially in challenging environments. 
+          Recent advancements have explored dense mapping techniques, 
+          but many systems still rely on a single camera, struggling with occlusions and limited fields of view.
+        </p>
+        <p>
+          In this work, we introduce Multi-Camera Gaussian Splatting SLAM, 
+          a novel SLAM framework that seamlessly fuses multi-camera input with a dense 3D Gaussian map representation. 
+          Our method leverages the multi-reprojection strategy and calibration techniques, efficiently utilizing Gaussian splatting for high-fidelity scene reconstruction. 
+          Unlike traditional point cloud representations, Gaussian splatting provides a continuous and scalable representation of the scene, capturing fine details with greater efficiency.
+        </p>
+        <p>
+          Furthermore, our multi-camera optimization strategy leverages multi-camera 
+          bundle adjustment to ensure consistent depth scaling and pose estimation across all cameras. 
+          This approach effectively aligns depth scales and camera poses, maintaining geometric consistency throughout the system. 
+          As a result, our method achieves accurate trajectory estimation and dense scene reconstruction purely through visual input, 
+          making it highly versatile for a wide range of applications in robotics and computer vision.
+        </p>
+      </div>
+      <!--/ Abstract. -->
+
+      <!-- Paper video. -->
+      <!-- <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Video</h2>
+        <div class="publication-video">
+          <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0"
+                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div> -->
+      <!--/ Paper video. -->
+    </div>
+  </section>
+
+  <hr />
+
+  <section class="section">
+    <div class="container is-max-desktop">
+
+      <h2 class="title is-3">Waymo Open Dataset</h2>
+
+      <div class="content">
+        <!-- Zoom Container. -->
+        <!-- / Zoom Container. -->
+        <div class="content has-text-justified">
+          <p>
+            We evaluate our Multi-Camera Gaussian Splatting SLAM system using the Waymo Open Dataset, 
+            a large-scale autonomous driving dataset widely recognized for its high-quality multi-sensor data. 
+            This dataset provides synchronized multi-camera imagery with precise calibration, making it ideal for multi-camera SLAM research. 
+            Specifically, we utilize three forward-facing cameras from the dataset: Front, Front-Left, and Front-Right. 
+            These cameras offer complementary perspectives of the scene, enhancing the system's ability to capture complete scene geometry and overcome occlusions.
+          </p>
+          <p>
+            In the following experimental results, we demonstrate the performance of our SLAM system compared to baseline methods. 
+            The  results visually highlight the advantages of our approach, 
+            including more accurate scene reconstruction and improved trajectory tracking across the multi-camera setup.
+          </p>
+        </div>
+
+        <div class="container is-max-desktop">
+          <h2 class="title is-4">Comparative Analysis of Single-Camera and Multi-Camera SLAM</h2>
+            <div class="content has-text-centered">
+
+              <div class="content has-text-justified">
+                <p>
+                  This experiment on Waymo Open Dataset (Sample 100613) visually demonstrates the advantages of our Multi-Camera Gaussian Splatting 
+                  SLAM system. We present three separate video results showing the 3D mapping performance using each of the three individual cameras—Front, 
+                  Front-Left, and Front-Right—from the dataset. 
+                  These single-camera reconstructions are then compared against our Multi-Camera SLAM results.
+                </p>
+                <p>
+                  The comparison clearly illustrates how the multi-camera approach benefits from the complementary viewpoints of the three cameras, 
+                  resulting in more complete and consistent 3D scene reconstruction. In contrast, single-camera setups often suffer from occlusions and limited fields of view, 
+                  leading to incomplete or distorted geometry. Our Multi-Camera SLAM effectively integrates information from all three perspectives, achieving better scene coverage and depth accuracy.
+                </p>
+              </div>
+
+              <div class="tabs-widget">
+                <div class="tabs is-centered is-toggle is-toggle-rounded">
+                  <ul class="is-marginless">
+                    <li class="is-active"><a>Left vs. Multi</a></li>
+                    <li><a>Front vs. Multi</a></li>
+                    <li><a>Right vs. Multi</a></li>
+                  </ul>
+                </div>
+                <div class="tabs-content">
+                  <div>
+                    <video id="replay-video" controls muted preload playsinline autoplay loop width="100%">
+                      <source src="./static/videos/left_multi.mp4" type="video/mp4">
+                    </video>
+                    <div class="columns is-mobile has-text-centered">
+                      <div class="column is-one-half">(a) Front-Left (Mono)</div>
+                      <div class="column is-one-half">(b) Ours (Multi-Camera)</div>
+                    </div>
+                  </div>
+                  <div>
+                    <video id="replay-video" controls muted preload playsinline autoplay loop width="100%">
+                      <source src="./static/videos/front_multi.mp4" type="video/mp4">
+                    </video>
+                    <div class="columns is-mobile has-text-centered">
+                      <div class="column is-one-half">(a) Front (Mono)</div>
+                      <div class="column is-one-half">(b) Ours (Multi-Camera)</div>
+                    </div>
+                  </div>
+                  <div>
+                    <video id="replay-video" controls muted preload playsinline autoplay loop width="100%">
+                      <source src="./static/videos/right_multi.mp4" type="video/mp4">
+                    </video>
+                    <div class="columns is-mobile has-text-centered">
+                      <div class="column is-one-half">(a) Front-Right (Mono)</div>
+                      <div class="column is-one-half">(b) Ours (Multi-Camera)</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+
+        </div>
+
+        <br><br>
+
+        <div class="content">
+          <h2 class="title is-4">Comparative Analysis of Single-Camera and Multi-Camera Mapping</h2>
+          <p>
+            In this section, we present a comparative analysis between single-camera SLAM and our Multi-Camera Gaussian Splatting SLAM system. 
+            We visualize the 3D mapping results generated by each individual camera (Front, Front-Left, and Front-Right) and our final multi-camera Gaussian Splatting mapping.
+            Additionally, we compare our results against HI-SLAM2, a state-of-the-art Gaussian Splatting SLAM system.
+          </p>
+          <p>
+          The visual comparisons clearly demonstrate that our multi-camera approach significantly 
+          outperforms single-camera methods, providing more complete and consistent 3D scene reconstructions. 
+          Our system also achieves more scene details and ensures a richer 3D representation than HI-SLAM2, highlighting the benefits of leveraging multiple viewpoints 
+          through Gaussian Splatting.
+          </p>
+
+          <div class="tabs-widget">
+            <div class="tabs is-centered">
+              <ul class="is-marginless">
+                <li class="is-active"><a>100613</a></li>
+                <li><a>158686</a></li>
+                <li><a>134763</a></li>
+                <li><a>106762</a></li>
+              </ul>
+            </div>
+            <!-- <div class="content has-text-centered is-size-7-mobile">
+              Interactive visualization. Hover or tap to move the split.
+            </div> -->
+            <div class="tabs-content">
+              <!-- Begin bicycle. -->
+              <div>
+                <div class="tabs-widget">
+                  <div class="tabs is-centered is-toggle is-toggle-rounded is-small">
+                    <ul class="is-marginless">
+                      <li class="is-active"><a>Left vs. Ours</a></li>
+                      <li><a>Front vs. Ours</a></li>
+                      <li><a>Right vs. Ours</a></li>
+                      <li><a>Hi-SLAM2 vs. Ours</a></li>
+                    </ul>
+                  </div>
+                  <div class="tabs-content">
+                    <div class="image-comparison">
+                        <img src="./static/images/100613_left.png" alt="Left Image" style="width: 50%;">
+                        <img src="./static/images/100613_multi.png" alt="Right Image" style="width: 50%;">
+                    </div>
+                    <div class="image-comparison">
+                        <img src="./static/images/100613_front.png" alt="Left Image" style="width: 50%;">
+                        <img src="./static/images/100613_multi.png" alt="Right Image" style="width: 50%;">
+                    </div>
+                    <div class="image-comparison">
+                        <img src="./static/images/100613_right.png" alt="Left Image" style="width: 50%;">
+                        <img src="./static/images/100613_multi.png" alt="Right Image" style="width: 50%;">
+                    </div>
+                    <div class="image-comparison">
+                        <img src="./static/images/100613_hislam.png" alt="Left Image" style="width: 50%;">
+                        <img src="./static/images/100613_multi.png" alt="Right Image" style="width: 50%;">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- End bicycle. -->
+              <!-- Begin flowerbed. -->
+              <div>
+                <div class="tabs-widget">
+                  <div class="tabs is-centered is-toggle is-toggle-rounded is-small">
+                    <ul class="is-marginless">
+                      <li class="is-active"><a>Left vs. Ours</a></li>
+                      <li><a>Front vs. Ours</a></li>
+                      <li><a>Right vs. Ours</a></li>
+                      <li><a>Hi-SLAM2 vs. Ours</a></li>
+                    </ul>
+                  </div>
+                  <div class="tabs-content">
+                    <div class="image-comparison">
+                        <img src="./static/images/158686_left.png" alt="Left Image" style="width: 50%;">
+                        <img src="./static/images/158686_multi.png" alt="Right Image" style="width: 50%;">
+                    </div>
+                    <div class="image-comparison">
+                        <img src="./static/images/158686_front.png" alt="Left Image" style="width: 50%;">
+                        <img src="./static/images/158686_multi.png" alt="Right Image" style="width: 50%;">
+                    </div>
+                    <div class="image-comparison">
+                        <img src="./static/images/158686_right.png" alt="Left Image" style="width: 50%;">
+                        <img src="./static/images/158686_multi.png" alt="Right Image" style="width: 50%;">
+                    </div>
+                    <div class="image-comparison">
+                        <img src="./static/images/158686_hislam.png" alt="Left Image" style="width: 50%;">
+                        <img src="./static/images/158686_multi.png" alt="Right Image" style="width: 50%;">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- End flowerbed. -->
+              <!-- Begin gardenvase. -->
+              <div>
+                <div class="tabs-widget">
+                  <div class="tabs is-centered is-toggle is-toggle-rounded is-small">
+                    <ul class="is-marginless">
+                      <li class="is-active"><a>Left vs. Ours</a></li>
+                      <li><a>Front vs. Ours</a></li>
+                      <li><a>Right vs. Ours</a></li>
+                      <li><a>Hi-SLAM2 vs. Ours</a></li>
+                    </ul>
+                  </div>
+                  <div class="tabs-content">
+                    <div class="image-comparison">
+                        <img src="./static/images/134763_left.png" alt="Left Image" style="width: 50%;">
+                        <img src="./static/images/134763_multi.png" alt="Right Image" style="width: 50%;">
+                    </div>
+                    <div class="image-comparison">
+                        <img src="./static/images/134763_front.png" alt="Left Image" style="width: 50%;">
+                        <img src="./static/images/134763_multi.png" alt="Right Image" style="width: 50%;">
+                    </div>
+                    <div class="image-comparison">
+                        <img src="./static/images/134763_right.png" alt="Left Image" style="width: 50%;">
+                        <img src="./static/images/134763_multi.png" alt="Right Image" style="width: 50%;">
+                    </div>
+                    <div class="image-comparison">
+                        <img src="./static/images/134763_hislam.png" alt="Left Image" style="width: 50%;">
+                        <img src="./static/images/134763_multi.png" alt="Right Image" style="width: 50%;">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- End gardenvase. -->
+              <!-- Begin treehill. -->
+              <div>
+                <div class="tabs-widget">
+                  <div class="tabs is-centered is-toggle is-toggle-rounded is-small">
+                    <ul class="is-marginless">
+                      <li class="is-active"><a>Left vs. Ours</a></li>
+                      <li><a>Front vs. Ours</a></li>
+                      <li><a>Right vs. Ours</a></li>
+                      <li><a>Hi-SLAM2 vs. Ours</a></li>
+                    </ul>
+                  </div>
+                  <div class="tabs-content">
+                    <div class="image-comparison">
+                        <img src="./static/images/106762_left.png" alt="Left Image" style="width: 50%;">
+                        <img src="./static/images/106762_multi.png" alt="Right Image" style="width: 50%;">
+                    </div>
+                    <div class="image-comparison">
+                        <img src="./static/images/106762_front.png" alt="Left Image" style="width: 50%;">
+                        <img src="./static/images/106762_multi.png" alt="Right Image" style="width: 50%;">
+                    </div>
+                    <div class="image-comparison">
+                        <img src="./static/images/106762_right.png" alt="Left Image" style="width: 50%;">
+                        <img src="./static/images/106762_multi.png" alt="Right Image" style="width: 50%;">
+                    </div>
+                    <div class="image-comparison">
+                        <img src="./static/images/106762_hislam.png" alt="Left Image" style="width: 50%;">
+                        <img src="./static/images/106762_multi.png" alt="Right Image" style="width: 50%;">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- End treehill. -->
+              <!-- Begin fullkitchen. -->
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <hr />
+
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">Acknowledgements</h2>
+      <p>
+        I would like to thank our supervisors Zihan Zhu and Wei Zhang for their valuable guidance in this 3DV project.
+      </p>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              This webpage is based on the project page for <a rel="license"
+                href="https://camp-nerf.github.io/">CamP</a>. The video comparison tool is from the <a rel="license"
+                href="https://dorverbin.github.io/refnerf/index.html">Ref-NeRF</a> project.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>
