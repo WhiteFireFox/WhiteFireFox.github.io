@@ -727,7 +727,8 @@
           <div class="tabs-widget">
             <div class="tabs is-centered">
               <ul class="is-marginless">
-                <li class="is-active"><a>Factory</a></li>
+                <li class="is-active"><a>Garden</a></li>
+                <li><a>Factory</a></li>
                 <li><a>Village</a></li>
               </ul>
             </div>
@@ -735,6 +736,50 @@
               Interactive visualization. Hover or tap to move the split.
             </div> -->
             <div class="tabs-content">
+
+              <div>
+                <div class="tabs-widget">
+                  <div class="tabs is-centered is-toggle is-toggle-rounded is-small">
+                    <ul class="is-marginless">
+                      <li class="is-active"><a>MonoGS vs. Ours</a></li>
+                      <li><a>Metric3Dv2 vs. Ours</a></li>
+                      <li><a>Hi-SLAM2 vs. Ours</a></li>
+                    </ul>
+                  </div>
+                  <div class="tabs-content">
+                    <div>
+                      <video id="replay-video" controls muted preload playsinline autoplay loop width="100%">
+                        <source src="./static/videos/sim3_monogs.mp4" type="video/mp4">
+                      </video>
+                    <br>
+                      <div class="columns is-mobile has-text-centered">
+                        <div class="column is-one-half">(a) MonoGS (Mono)</div>
+                        <div class="column is-one-half">(b) Ours (Multi-Camera)</div>
+                      </div>
+                    </div>
+                    <div>
+                      <video id="replay-video" controls muted preload playsinline autoplay loop width="100%">
+                        <source src="./static/videos/sim3_metric.mp4" type="video/mp4">
+                      </video>
+                    <br>
+                      <div class="columns is-mobile has-text-centered">
+                        <div class="column is-one-half">(a) Metric3Dv2 (Mono)</div>
+                        <div class="column is-one-half">(b) Ours (Multi-Camera)</div>
+                      </div>
+                    </div>
+                    <div>
+                      <video id="replay-video" controls muted preload playsinline autoplay loop width="100%">
+                        <source src="./static/videos/sim3_hislam.mp4" type="video/mp4">
+                      </video>
+                    <br>
+                      <div class="columns is-mobile has-text-centered">
+                        <div class="column is-one-half">(a) Hi-SLAM2 (Mono)</div>
+                        <div class="column is-one-half">(b) Ours (Multi-Camera)</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
               <div>
                 <div class="tabs-widget">
@@ -832,7 +877,7 @@
         <br>
 
         <div class="content">
-          <h2 class="title is-4">Comparative Analysis of Single-Camera and Multi-Camera Tracking (TODO)</h2>
+          <h2 class="title is-4">Comparative Analysis of Single-Camera and Multi-Camera Tracking (Sim3)</h2>
           <p>
             In this section, We evaluate the tracking performance of our Multi-Camera Gaussian Splatting SLAM system against a 
             Monocular SLAM setup and the ground truth trajectories across three simulation scenarios. 
@@ -845,20 +890,23 @@
           <div class="tabs-widget">
             <div class="tabs is-centered is-toggle is-toggle-rounded">
               <ul class="is-marginless">
-                <li class="is-active"><a>Factory</a></li>
+                <li class="is-active"><a>Garden</a></li>
+                <li><a>Factory</a></li>
                 <li><a>Village</a></li>
-                <li><a>Garden</a></li>
               </ul>
             </div>
             <div class="tabs-content">
-              <div>
-                <img src="./static/images/sim1_traj.png" alt="Image" style="display: block; margin: 0 auto; width: 40%;">
+              <div class="image-comparison">
+                  <img src="./static/images/sim3_traj.png" alt="Left Image" style="width: 45%;">
+                  <img src="./static/images/sim3_traj_xyz.png" alt="Right Image" style="width: 45%;">
               </div>
-              <div>
-                <img src="./static/images/sim2_traj.png" alt="Image" style="display: block; margin: 0 auto; width: 40%;">
+              <div class="image-comparison">
+                  <img src="./static/images/sim1_traj.png" alt="Left Image" style="width: 45%;">
+                  <img src="./static/images/sim1_traj_xyz.png" alt="Right Image" style="width: 45%;">
               </div>
-              <div>
-                <img src="./static/images/sim3_traj.png" alt="Image" style="display: block; margin: 0 auto; width: 40%;">
+              <div class="image-comparison">
+                  <img src="./static/images/sim2_traj.png" alt="Left Image" style="width: 45%;">
+                  <img src="./static/images/sim2_traj_xyz.png" alt="Right Image" style="width: 45%;">
               </div>
             </div>
           </div>
