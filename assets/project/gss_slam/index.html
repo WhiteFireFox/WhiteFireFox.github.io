@@ -198,19 +198,16 @@
         <!-- Zoom Container. -->
         <!-- / Zoom Container. -->
         <div class="content has-text-justified">
-          <p>
-            We evaluate our Multi-Camera Gaussian Splatting SLAM system using the Waymo Open Dataset, 
-            a large-scale autonomous driving dataset widely recognized for its high-quality multi-sensor data. 
-            This dataset provides synchronized multi-camera imagery with precise calibration, making it ideal for multi-camera SLAM research. 
-            Specifically, we utilize three forward-facing cameras from the dataset: Front, Front-Left, and Front-Right. 
-            These cameras offer complementary perspectives of the scene, enhancing the system's ability to capture complete scene geometry and overcome occlusions.
-          </p>
-          <p>
-            In the following experimental results, we demonstrate the performance of our SLAM system compared to baseline methods. 
-            The  results visually highlight the advantages of our approach, 
-            including more accurate scene reconstruction and improved trajectory tracking across the multi-camera setup.
-          </p>
+          The Waymo Open Dataset is a large-scale benchmark for autonomous driving, 
+          renowned for its high-quality, multi-sensor data collection. 
+          It offers precisely calibrated, temporally synchronized multi-camera imagery, 
+          providing a comprehensive and diverse visual representation of complex driving environments.
+          These multi-camera setups capture complementary perspectives, significantly enhancing the system's ability 
+          to reconstruct complete scene geometry and mitigate occlusion challenges in multi-camera SLAM research.
         </div>
+        <br>
+        <img src="./static/images/waymo.png" alt="Image" style="display: block; margin: 0 auto; width: 50%;">
+        <br><br>
 
         <div class="container is-max-desktop">
           <h2 class="title is-4">Comparative Analysis of Single-Camera and Multi-Camera SLAM</h2>
@@ -218,79 +215,14 @@
 
               <div class="content has-text-justified">
                 <p>
-                  This experiment on Waymo Open Dataset (Sample 100613) visually demonstrates the advantages of our Multi-Camera Gaussian Splatting 
-                  SLAM system. We present three separate video results showing the 3D mapping performance using each of the three individual cameras—Front, 
-                  Front-Left, and Front-Right—from the dataset. 
-                  These single-camera reconstructions are then compared against our Multi-Camera SLAM results.
+                  This experiment on the Waymo Open Dataset demonstrates the effectiveness of our Multi-Camera Gaussian Splatting SLAM system. We evaluate the 3D mapping performance using three individual cameras—Front, Front-Left, and Front-Right—and compare these single-camera reconstructions against the Multi-Camera SLAM results.
                 </p>
                 <p>
-                  The comparison clearly illustrates how the multi-camera approach benefits from the complementary viewpoints of the three cameras, 
-                  resulting in more complete and consistent 3D scene reconstruction. In contrast, single-camera setups often suffer from occlusions and limited fields of view, 
-                  leading to incomplete or distorted geometry. Our Multi-Camera SLAM effectively integrates information from all three perspectives, achieving better scene coverage and depth accuracy.
+                  The comparison highlights that the Multi-Camera SLAM leverages complementary viewpoints, providing more complete and geometrically consistent 3D reconstructions. In contrast, single-camera setups are prone to occlusions and limited fields of view, resulting in incomplete or distorted geometry. Our approach effectively fuses information from all three perspectives, achieving superior scene coverage and depth accuracy.
                 </p>
               </div>
 
               <div class="tabs-widget">
-                <div class="tabs is-centered is-toggle is-toggle-rounded">
-                  <ul class="is-marginless">
-                    <li class="is-active"><a>Left vs. Multi</a></li>
-                    <li><a>Front vs. Multi</a></li>
-                    <li><a>Right vs. Multi</a></li>
-                  </ul>
-                </div>
-                <div class="tabs-content">
-                  <div>
-                    <video id="replay-video" controls muted preload playsinline autoplay loop width="100%">
-                      <source src="./static/videos/left_multi.mp4" type="video/mp4">
-                    </video>
-                    <div class="columns is-mobile has-text-centered">
-                      <div class="column is-one-half">(a) Front-Left (Mono)</div>
-                      <div class="column is-one-half">(b) Ours (Multi-Camera)</div>
-                    </div>
-                  </div>
-                  <div>
-                    <video id="replay-video" controls muted preload playsinline autoplay loop width="100%">
-                      <source src="./static/videos/front_multi.mp4" type="video/mp4">
-                    </video>
-                    <div class="columns is-mobile has-text-centered">
-                      <div class="column is-one-half">(a) Front (Mono)</div>
-                      <div class="column is-one-half">(b) Ours (Multi-Camera)</div>
-                    </div>
-                  </div>
-                  <div>
-                    <video id="replay-video" controls muted preload playsinline autoplay loop width="100%">
-                      <source src="./static/videos/right_multi.mp4" type="video/mp4">
-                    </video>
-                    <div class="columns is-mobile has-text-centered">
-                      <div class="column is-one-half">(a) Front-Right (Mono)</div>
-                      <div class="column is-one-half">(b) Ours (Multi-Camera)</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-
-
-        </div>
-
-        <br><br>
-
-        <div class="content">
-          <h2 class="title is-4">Comparative Analysis of Single-Camera and Multi-Camera Mapping</h2>
-          <p>
-            In this section, we present a comparative analysis between single-camera SLAM and our Multi-Camera Gaussian Splatting SLAM system. 
-            We visualize the 3D mapping results generated by each individual camera (Front, Front-Left, and Front-Right) and our final multi-camera Gaussian Splatting mapping.
-            Additionally, we compare our results against HI-SLAM2, a state-of-the-art Gaussian Splatting SLAM system.
-          </p>
-          <p>
-          The visual comparisons clearly demonstrate that our multi-camera approach significantly 
-          outperforms single-camera methods, providing more complete and consistent 3D scene reconstructions. 
-          Our system also achieves more scene details and ensures a richer 3D representation than HI-SLAM2, highlighting the benefits of leveraging multiple viewpoints 
-          through Gaussian Splatting.
-          </p>
-
-          <div class="tabs-widget">
             <div class="tabs is-centered">
               <ul class="is-marginless">
                 <li class="is-active"><a>158686</a></li>
@@ -308,13 +240,45 @@
                 <div class="tabs-widget">
                   <div class="tabs is-centered is-toggle is-toggle-rounded is-small">
                     <ul class="is-marginless">
-                      <li class="is-active"><a>Left vs. Ours</a></li>
+                      <li class="is-active"><a>Left vs. Ours (Video)</a></li>
+                      <li><a>Front vs. Ours (Video)</a></li>
+                      <li><a>Right vs. Ours (Video)</a></li>
+                      <li><a>Left vs. Ours</a></li>
                       <li><a>Front vs. Ours</a></li>
                       <li><a>Right vs. Ours</a></li>
-                      <li><a>Hi-SLAM2 vs. Ours</a></li>
                     </ul>
                   </div>
                   <div class="tabs-content">
+                    <div>
+                      <video id="replay-video" controls muted preload playsinline autoplay loop width="100%">
+                        <source src="./static/videos/left_multi.mp4" type="video/mp4">
+                      </video>
+                      <br>
+                      <div class="columns is-mobile has-text-centered">
+                        <div class="column is-one-half">(a) Front-Left (Mono)</div>
+                        <div class="column is-one-half">(b) Ours (Multi-Camera)</div>
+                      </div>
+                    </div>
+                    <div>
+                      <video id="replay-video" controls muted preload playsinline autoplay loop width="100%">
+                        <source src="./static/videos/front_multi.mp4" type="video/mp4">
+                      </video>
+                      <br>
+                      <div class="columns is-mobile has-text-centered">
+                        <div class="column is-one-half">(a) Front (Mono)</div>
+                        <div class="column is-one-half">(b) Ours (Multi-Camera)</div>
+                      </div>
+                    </div>
+                    <div>
+                      <video id="replay-video" controls muted preload playsinline autoplay loop width="100%">
+                        <source src="./static/videos/right_multi.mp4" type="video/mp4">
+                      </video>
+                      <br>
+                      <div class="columns is-mobile has-text-centered">
+                        <div class="column is-one-half">(a) Front-Right (Mono)</div>
+                        <div class="column is-one-half">(b) Ours (Multi-Camera)</div>
+                      </div>
+                    </div>
                     <div>
                       <div class="image-comparison">
                           <img src="./static/images/158686_left.png" alt="Left Image" style="width: 50%;">
@@ -348,17 +312,6 @@
                         <div class="column is-one-half">(b) Ours (Multi-Camera)</div>
                       </div>
                     </div>
-                    <div>
-                    <div class="image-comparison">
-                        <img src="./static/images/158686_hislam.png" alt="Left Image" style="width: 50%;">
-                        <img src="./static/images/158686_multi.png" alt="Right Image" style="width: 50%;">
-                    </div>
-                    <br>
-                      <div class="columns is-mobile has-text-centered">
-                        <div class="column is-one-half">(a) Hi-SLAM2 (Mono)</div>
-                        <div class="column is-one-half">(b) Ours (Multi-Camera)</div>
-                      </div>
-                    </div>
                   </div>
                 </div>
               </div>
@@ -370,7 +323,6 @@
                       <li class="is-active"><a>Left vs. Ours</a></li>
                       <li><a>Front vs. Ours</a></li>
                       <li><a>Right vs. Ours</a></li>
-                      <li><a>Hi-SLAM2 vs. Ours</a></li>
                     </ul>
                   </div>
                   <div class="tabs-content">
@@ -407,17 +359,6 @@
                         <div class="column is-one-half">(b) Ours (Multi-Camera)</div>
                       </div>
                     </div>
-                    <div>
-                    <div class="image-comparison">
-                        <img src="./static/images/100613_hislam.png" alt="Left Image" style="width: 50%;">
-                        <img src="./static/images/100613_multi.png" alt="Right Image" style="width: 50%;">
-                    </div>
-                    <br>
-                      <div class="columns is-mobile has-text-centered">
-                        <div class="column is-one-half">(a) Hi-SLAM2 (Mono)</div>
-                        <div class="column is-one-half">(b) Ours (Multi-Camera)</div>
-                      </div>
-                    </div>
                   </div>
                 </div>
               </div>
@@ -431,7 +372,6 @@
                       <li class="is-active"><a>Left vs. Ours</a></li>
                       <li><a>Front vs. Ours</a></li>
                       <li><a>Right vs. Ours</a></li>
-                      <li><a>Hi-SLAM2 vs. Ours</a></li>
                     </ul>
                   </div>
                   <div class="tabs-content">
@@ -468,17 +408,6 @@
                         <div class="column is-one-half">(b) Ours (Multi-Camera)</div>
                       </div>
                     </div>
-                    <div>
-                    <div class="image-comparison">
-                        <img src="./static/images/134763_hislam.png" alt="Left Image" style="width: 50%;">
-                        <img src="./static/images/134763_multi.png" alt="Right Image" style="width: 50%;">
-                    </div>
-                    <br>
-                      <div class="columns is-mobile has-text-centered">
-                        <div class="column is-one-half">(a) Hi-SLAM2 (Mono)</div>
-                        <div class="column is-one-half">(b) Ours (Multi-Camera)</div>
-                      </div>
-                    </div>
                   </div>
                 </div>
               </div>
@@ -491,7 +420,6 @@
                       <li class="is-active"><a>Left vs. Ours</a></li>
                       <li><a>Front vs. Ours</a></li>
                       <li><a>Right vs. Ours</a></li>
-                      <li><a>Hi-SLAM2 vs. Ours</a></li>
                     </ul>
                   </div>
                   <div class="tabs-content">
@@ -528,6 +456,224 @@
                         <div class="column is-one-half">(b) Ours (Multi-Camera)</div>
                       </div>
                     </div>
+                  </div>
+                </div>
+              </div>
+              <!-- End treehill. -->
+              <!-- Begin fullkitchen. -->
+            </div>
+          </div>
+          </div>
+
+
+        </div>
+
+        <br><br>
+
+        <div class="content">
+          <h2 class="title is-4">Comparative Analysis of Single-Camera and Multi-Camera Mapping</h2>
+          <p>
+            In this section, we conduct a comparative analysis between single-camera SLAM and our Multi-Camera Gaussian Splatting SLAM system, 
+            further benchmarking against state-of-the-art methods, including <a href="https://arxiv.org/pdf/2312.06741" target="_blank">MonoGS</a>, 
+            <a href="https://arxiv.org/pdf/2404.15506" target="_blank">Metric3Dv2</a>, 
+            and <a href="https://arxiv.org/pdf/2411.17982" target="_blank">HI-SLAM2</a>.
+          </p>
+          <p>
+          The visual comparisons clearly demonstrate that our multi-camera approach significantly outperforms single-camera methods, 
+          providing more complete and consistent 3D scene reconstructions. Our system also achieves more scene details and ensures a richer 3D representation than HI-SLAM2, 
+          highlighting the benefits of leveraging multiple viewpoints through Gaussian Splatting and Multi-Camera system.
+          </p>
+
+          <div class="tabs-widget">
+            <div class="tabs is-centered">
+              <ul class="is-marginless">
+                <li class="is-active"><a>158686</a></li>
+                <li><a>100613</a></li>
+                <li><a>134763</a></li>
+                <li><a>106762</a></li>
+              </ul>
+            </div>
+            <!-- <div class="content has-text-centered is-size-7-mobile">
+              Interactive visualization. Hover or tap to move the split.
+            </div> -->
+            <div class="tabs-content">
+
+              <div>
+                <div class="tabs-widget">
+                  <div class="tabs is-centered is-toggle is-toggle-rounded is-small">
+                    <ul class="is-marginless">
+                      <li class="is-active"><a>MonoGS vs. Ours</a></li>
+                      <li><a>Metric3Dv2 vs. Ours</a></li>
+                      <li><a>Hi-SLAM2 vs. Ours</a></li>
+                    </ul>
+                  </div>
+                  <div class="tabs-content">
+                    <div>
+                      <div class="image-comparison">
+                          <img src="./static/images/158686_monogs.png" alt="Left Image" style="width: 50%;">
+                          <img src="./static/images/158686_multi.png" alt="Right Image" style="width: 50%;">
+                      </div>
+                      <br>
+                      <div class="columns is-mobile has-text-centered">
+                        <div class="column is-one-half">(a) MonoGS (Mono)</div>
+                        <div class="column is-one-half">(b) Ours (Multi-Camera)</div>
+                      </div>
+                    </div>
+                    <div>
+                    <div class="image-comparison">
+                        <img src="./static/images/158686_metric.png" alt="Left Image" style="width: 50%;">
+                        <img src="./static/images/158686_multi.png" alt="Right Image" style="width: 50%;">
+                    </div>
+                    <br>
+                      <div class="columns is-mobile has-text-centered">
+                        <div class="column is-one-half">(a) Metric3Dv2 (Mono)</div>
+                        <div class="column is-one-half">(b) Ours (Multi-Camera)</div>
+                      </div>
+                    </div>
+                    <div>
+                    <div class="image-comparison">
+                        <img src="./static/images/158686_hislam.png" alt="Left Image" style="width: 50%;">
+                        <img src="./static/images/158686_multi.png" alt="Right Image" style="width: 50%;">
+                    </div>
+                    <br>
+                      <div class="columns is-mobile has-text-centered">
+                        <div class="column is-one-half">(a) Hi-SLAM2 (Mono)</div>
+                        <div class="column is-one-half">(b) Ours (Multi-Camera)</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Begin bicycle. -->
+              <div>
+                <div class="tabs-widget">
+                  <div class="tabs is-centered is-toggle is-toggle-rounded is-small">
+                    <ul class="is-marginless">
+                      <li class="is-active"><a>MonoGS vs. Ours</a></li>
+                      <li><a>Metric3Dv2 vs. Ours</a></li>
+                      <li><a>Hi-SLAM2 vs. Ours</a></li>
+                    </ul>
+                  </div>
+                  <div class="tabs-content">
+                    <div>
+                    <div class="image-comparison">
+                        <img src="./static/images/100613_monogs.png" alt="Left Image" style="width: 50%;">
+                        <img src="./static/images/100613_multi.png" alt="Right Image" style="width: 50%;">
+                    </div>
+                    <br>
+                      <div class="columns is-mobile has-text-centered">
+                        <div class="column is-one-half">(a) MonoGS (Mono)</div>
+                        <div class="column is-one-half">(b) Ours (Multi-Camera)</div>
+                      </div>
+                    </div>
+                    <div>
+                    <div class="image-comparison">
+                        <img src="./static/images/100613_metric.png" alt="Left Image" style="width: 50%;">
+                        <img src="./static/images/100613_multi.png" alt="Right Image" style="width: 50%;">
+                    </div>
+                    <br>
+                      <div class="columns is-mobile has-text-centered">
+                        <div class="column is-one-half">(a) Metric3Dv2 (Mono)</div>
+                        <div class="column is-one-half">(b) Ours (Multi-Camera)</div>
+                      </div>
+                    </div>
+                    <div>
+                    <div class="image-comparison">
+                        <img src="./static/images/100613_hislam.png" alt="Left Image" style="width: 50%;">
+                        <img src="./static/images/100613_multi.png" alt="Right Image" style="width: 50%;">
+                    </div>
+                    <br>
+                      <div class="columns is-mobile has-text-centered">
+                        <div class="column is-one-half">(a) Hi-SLAM2 (Mono)</div>
+                        <div class="column is-one-half">(b) Ours (Multi-Camera)</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- End flowerbed. -->
+              <!-- Begin gardenvase. -->
+              <div>
+                <div class="tabs-widget">
+                  <div class="tabs is-centered is-toggle is-toggle-rounded is-small">
+                    <ul class="is-marginless">
+                      <li class="is-active"><a>MonoGS vs. Ours</a></li>
+                      <li><a>Metric3Dv2 vs. Ours</a></li>
+                      <li><a>Hi-SLAM2 vs. Ours</a></li>
+                    </ul>
+                  </div>
+                  <div class="tabs-content">
+                    <div>
+                    <div class="image-comparison">
+                        <img src="./static/images/134763_monogs.png" alt="Left Image" style="width: 50%;">
+                        <img src="./static/images/134763_multi.png" alt="Right Image" style="width: 50%;">
+                    </div>
+                    <br>
+                      <div class="columns is-mobile has-text-centered">
+                        <div class="column is-one-half">(a) MonoGS (Mono)</div>
+                        <div class="column is-one-half">(b) Ours (Multi-Camera)</div>
+                      </div>
+                    </div>
+                    <div>
+                    <div class="image-comparison">
+                        <img src="./static/images/134763_metric.png" alt="Left Image" style="width: 50%;">
+                        <img src="./static/images/134763_multi.png" alt="Right Image" style="width: 50%;">
+                    </div>
+                    <br>
+                      <div class="columns is-mobile has-text-centered">
+                        <div class="column is-one-half">(a) Metric3Dv2 (Mono)</div>
+                        <div class="column is-one-half">(b) Ours (Multi-Camera)</div>
+                      </div>
+                    </div>
+                    <div>
+                    <div class="image-comparison">
+                        <img src="./static/images/134763_hislam.png" alt="Left Image" style="width: 50%;">
+                        <img src="./static/images/134763_multi.png" alt="Right Image" style="width: 50%;">
+                    </div>
+                    <br>
+                      <div class="columns is-mobile has-text-centered">
+                        <div class="column is-one-half">(a) Hi-SLAM2 (Mono)</div>
+                        <div class="column is-one-half">(b) Ours (Multi-Camera)</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- End gardenvase. -->
+              <!-- Begin treehill. -->
+              <div>
+                <div class="tabs-widget">
+                  <div class="tabs is-centered is-toggle is-toggle-rounded is-small">
+                    <ul class="is-marginless">
+                      <li class="is-active"><a>MonoGS vs. Ours</a></li>
+                      <li><a>Metric3Dv2 vs. Ours</a></li>
+                      <li><a>Hi-SLAM2 vs. Ours</a></li>
+                    </ul>
+                  </div>
+                  <div class="tabs-content">
+                    <div>
+                    <div class="image-comparison">
+                        <img src="./static/images/106762_monogs.png" alt="Left Image" style="width: 50%;">
+                        <img src="./static/images/106762_multi.png" alt="Right Image" style="width: 50%;">
+                    </div>
+                    <br>
+                      <div class="columns is-mobile has-text-centered">
+                        <div class="column is-one-half">(a) MonoGS (Mono)</div>
+                        <div class="column is-one-half">(b) Ours (Multi-Camera)</div>
+                      </div>
+                    </div>
+                    <div>
+                    <div class="image-comparison">
+                        <img src="./static/images/106762_metric.png" alt="Left Image" style="width: 50%;">
+                        <img src="./static/images/106762_multi.png" alt="Right Image" style="width: 50%;">
+                    </div>
+                    <br>
+                      <div class="columns is-mobile has-text-centered">
+                        <div class="column is-one-half">(a) Metric3Dv2 (Mono)</div>
+                        <div class="column is-one-half">(b) Ours (Multi-Camera)</div>
+                      </div>
+                    </div>
                     <div>
                     <div class="image-comparison">
                         <img src="./static/images/106762_hislam.png" alt="Left Image" style="width: 50%;">
@@ -555,11 +701,181 @@
 
   <hr />
 
+  <section class="section">
+    <div class="container is-max-desktop">
+
+      <h2 class="title is-3">Airsim Dataset</h2>
+
+      <div class="content">
+        <!-- Zoom Container. -->
+        <!-- / Zoom Container. -->
+        <div class="content has-text-justified">
+            The <a href="https://github.com/microsoft/AirSim" target="_blank">AirSim</a> environment offers a high-fidelity simulation platform with diverse outdoor and indoor scenarios, providing precise control over multi-camera configurations. Our system utilizes AirSim to generate synchronized multi-camera data, capturing complementary viewpoints across dynamic scenes. This setup enhances the robustness of our SLAM system by mitigating occlusions and increasing scene coverage. Additionally, AirSim provides accurate ground truth for pose and depth information, enabling rigorous performance evaluation and algorithm development for our Multi-Camera Gaussian Splatting SLAM system.
+        </div>
+        <img src="./static/images/airsim.png" alt="Image" style="display: block; margin: 0 auto; width: 90%;">
+        <br><br>
+
+        <div class="content">
+          <h2 class="title is-4">Comparative Analysis of Single-Camera and Multi-Camera SLAM</h2>
+          <p>
+            In this section, we present a comparative analysis between single-camera SLAM and our Multi-Camera Gaussian Splatting SLAM system within the AirSim environment.
+          </p>
+          <p>
+          The visual comparisons in the video clearly highlight the advantages of our multi-camera approach, which consistently delivers more complete and coherent 3D scene reconstructions compared to single-camera methods.
+          </p>
+
+          <div class="tabs-widget">
+            <div class="tabs is-centered">
+              <ul class="is-marginless">
+                <li class="is-active"><a>Factory</a></li>
+                <li><a>Village</a></li>
+              </ul>
+            </div>
+            <!-- <div class="content has-text-centered is-size-7-mobile">
+              Interactive visualization. Hover or tap to move the split.
+            </div> -->
+            <div class="tabs-content">
+
+              <div>
+                <div class="tabs-widget">
+                  <div class="tabs is-centered is-toggle is-toggle-rounded is-small">
+                    <ul class="is-marginless">
+                      <li class="is-active"><a>MonoGS vs. Ours</a></li>
+                      <li><a>Metric3Dv2 vs. Ours</a></li>
+                      <li><a>Hi-SLAM2 vs. Ours</a></li>
+                    </ul>
+                  </div>
+                  <div class="tabs-content">
+                    <div>
+                      <video id="replay-video" controls muted preload playsinline autoplay loop width="100%">
+                        <source src="./static/videos/sim1_monogs.mp4" type="video/mp4">
+                      </video>
+                      <br>
+                      <div class="columns is-mobile has-text-centered">
+                        <div class="column is-one-half">(a) MonoGS (Mono)</div>
+                        <div class="column is-one-half">(b) Ours (Multi-Camera)</div>
+                      </div>
+                    </div>
+                    <div>
+                      <video id="replay-video" controls muted preload playsinline autoplay loop width="100%">
+                        <source src="./static/videos/sim1_metric.mp4" type="video/mp4">
+                      </video>
+                    <br>
+                      <div class="columns is-mobile has-text-centered">
+                        <div class="column is-one-half">(a) Metric3Dv2 (Mono)</div>
+                        <div class="column is-one-half">(b) Ours (Multi-Camera)</div>
+                      </div>
+                    </div>
+                    <div>
+                      <video id="replay-video" controls muted preload playsinline autoplay loop width="100%">
+                        <source src="./static/videos/sim1_hislam.mp4" type="video/mp4">
+                      </video>
+                    <br>
+                      <div class="columns is-mobile has-text-centered">
+                        <div class="column is-one-half">(a) Hi-SLAM2 (Mono)</div>
+                        <div class="column is-one-half">(b) Ours (Multi-Camera)</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Begin bicycle. -->
+              <div>
+                <div class="tabs-widget">
+                  <div class="tabs is-centered is-toggle is-toggle-rounded is-small">
+                    <ul class="is-marginless">
+                      <li class="is-active"><a>MonoGS vs. Ours</a></li>
+                      <li><a>Metric3Dv2 vs. Ours</a></li>
+                      <li><a>Hi-SLAM2 vs. Ours</a></li>
+                    </ul>
+                  </div>
+                  <div class="tabs-content">
+                    <div>
+                      <video id="replay-video" controls muted preload playsinline autoplay loop width="100%">
+                        <source src="./static/videos/sim2_monogs.mp4" type="video/mp4">
+                      </video>
+                    <br>
+                      <div class="columns is-mobile has-text-centered">
+                        <div class="column is-one-half">(a) MonoGS (Mono)</div>
+                        <div class="column is-one-half">(b) Ours (Multi-Camera)</div>
+                      </div>
+                    </div>
+                    <div>
+                      <video id="replay-video" controls muted preload playsinline autoplay loop width="100%">
+                        <source src="./static/videos/sim2_metric.mp4" type="video/mp4">
+                      </video>
+                    <br>
+                      <div class="columns is-mobile has-text-centered">
+                        <div class="column is-one-half">(a) Metric3Dv2 (Mono)</div>
+                        <div class="column is-one-half">(b) Ours (Multi-Camera)</div>
+                      </div>
+                    </div>
+                    <div>
+                      <video id="replay-video" controls muted preload playsinline autoplay loop width="100%">
+                        <source src="./static/videos/sim2_hislam.mp4" type="video/mp4">
+                      </video>
+                    <br>
+                      <div class="columns is-mobile has-text-centered">
+                        <div class="column is-one-half">(a) Hi-SLAM2 (Mono)</div>
+                        <div class="column is-one-half">(b) Ours (Multi-Camera)</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- End flowerbed. -->
+              <!-- Begin gardenvase. -->
+            </div>
+          </div>
+        </div>
+        <br>
+
+        <div class="content">
+          <h2 class="title is-4">Comparative Analysis of Single-Camera and Multi-Camera Tracking (TODO)</h2>
+          <p>
+            In this section, We evaluate the tracking performance of our Multi-Camera Gaussian Splatting SLAM system against a 
+            Monocular SLAM setup and the ground truth trajectories across three simulation scenarios. 
+          </p>
+          <p>
+            Our method demonstrates improved tracking accuracy 
+            in several challenging regions, maintaining closer alignment with the ground truth and reducing drift. 
+            The multi-camera configuration enhances robustness in complex environments, particularly in areas with sharp turns and extended trajectories.
+          </p>
+          <div class="tabs-widget">
+            <div class="tabs is-centered is-toggle is-toggle-rounded">
+              <ul class="is-marginless">
+                <li class="is-active"><a>Factory</a></li>
+                <li><a>Village</a></li>
+                <li><a>Garden</a></li>
+              </ul>
+            </div>
+            <div class="tabs-content">
+              <div>
+                <img src="./static/images/sim1_traj.png" alt="Image" style="display: block; margin: 0 auto; width: 40%;">
+              </div>
+              <div>
+                <img src="./static/images/sim2_traj.png" alt="Image" style="display: block; margin: 0 auto; width: 40%;">
+              </div>
+              <div>
+                <img src="./static/images/sim3_traj.png" alt="Image" style="display: block; margin: 0 auto; width: 40%;">
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <hr />
+
   <section class="section" id="BibTeX">
     <div class="container is-max-desktop content">
       <h2 class="title">Acknowledgements</h2>
       <p>
-        I would like to thank our supervisors Zihan Zhu and Wei Zhang for their valuable guidance in this 3DV project.
+        We would like to thank our supervisors Zihan Zhu and Wei Zhang for their valuable guidance in this 3DV project.
       </p>
     </div>
   </section>
