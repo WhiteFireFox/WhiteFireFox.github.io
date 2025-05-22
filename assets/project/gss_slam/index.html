@@ -225,8 +225,8 @@
               <div class="tabs-widget">
             <div class="tabs is-centered">
               <ul class="is-marginless">
-                <li class="is-active"><a>158686</a></li>
-                <li><a>100613</a></li>
+                <li class="is-active"><a>100613</a></li>
+                <li><a>158686</a></li>
                 <li><a>134763</a></li>
                 <li><a>106762</a></li>
               </ul>
@@ -240,15 +240,45 @@
                 <div class="tabs-widget">
                   <div class="tabs is-centered is-toggle is-toggle-rounded is-small">
                     <ul class="is-marginless">
-                      <li class="is-active"><a>Left vs. Ours (Video)</a></li>
+                      <li class="is-active"><a>Left vs. Ours (ELL)</a></li>
+                      <li><a>Front vs. Ours (ELL)</a></li>
+                      <li><a>Right vs. Ours (ELL)</a></li>
+                      <li><a>Left vs. Ours (Video)</a></li>
                       <li><a>Front vs. Ours (Video)</a></li>
                       <li><a>Right vs. Ours (Video)</a></li>
-                      <li><a>Left vs. Ours</a></li>
-                      <li><a>Front vs. Ours</a></li>
-                      <li><a>Right vs. Ours</a></li>
                     </ul>
                   </div>
                   <div class="tabs-content">
+                    <div>
+                      <video id="replay-video" controls muted preload playsinline autoplay loop width="100%">
+                        <source src="./static/videos/100613_left_gs.mp4" type="video/mp4">
+                      </video>
+                      <br>
+                      <div class="columns is-mobile has-text-centered">
+                        <div class="column is-one-half">(a) Front-Left (Mono)</div>
+                        <div class="column is-one-half">(b) Ours (Multi-Camera)</div>
+                      </div>
+                    </div>
+                    <div>
+                      <video id="replay-video" controls muted preload playsinline autoplay loop width="100%">
+                        <source src="./static/videos/100613_metric_gs.mp4" type="video/mp4">
+                      </video>
+                      <br>
+                      <div class="columns is-mobile has-text-centered">
+                        <div class="column is-one-half">(a) Front (Mono)</div>
+                        <div class="column is-one-half">(b) Ours (Multi-Camera)</div>
+                      </div>
+                    </div>
+                    <div>
+                      <video id="replay-video" controls muted preload playsinline autoplay loop width="100%">
+                        <source src="./static/videos/100613_hislam_gs.mp4" type="video/mp4">
+                      </video>
+                      <br>
+                      <div class="columns is-mobile has-text-centered">
+                        <div class="column is-one-half">(a) Front-Right (Mono)</div>
+                        <div class="column is-one-half">(b) Ours (Multi-Camera)</div>
+                      </div>
+                    </div>
                     <div>
                       <video id="replay-video" controls muted preload playsinline autoplay loop width="100%">
                         <source src="./static/videos/left_multi.mp4" type="video/mp4">
@@ -279,6 +309,20 @@
                         <div class="column is-one-half">(b) Ours (Multi-Camera)</div>
                       </div>
                     </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Begin bicycle. -->
+              <div>
+                <div class="tabs-widget">
+                  <div class="tabs is-centered is-toggle is-toggle-rounded is-small">
+                    <ul class="is-marginless">
+                      <li class="is-active"><a>Left vs. Ours</a></li>
+                      <li><a>Front vs. Ours</a></li>
+                      <li><a>Right vs. Ours</a></li>
+                    </ul>
+                  </div>
+                  <div class="tabs-content">
                     <div>
                       <div class="image-comparison">
                           <img src="./static/images/158686_left.png" alt="Left Image" style="width: 50%;">
@@ -309,53 +353,6 @@
                     <br>
                       <div class="columns is-mobile has-text-centered">
                         <div class="column is-one-half">(a) Front-right (Mono)</div>
-                        <div class="column is-one-half">(b) Ours (Multi-Camera)</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- Begin bicycle. -->
-              <div>
-                <div class="tabs-widget">
-                  <div class="tabs is-centered is-toggle is-toggle-rounded is-small">
-                    <ul class="is-marginless">
-                      <li class="is-active"><a>Left vs. Ours</a></li>
-                      <li><a>Front vs. Ours</a></li>
-                      <li><a>Right vs. Ours</a></li>
-                    </ul>
-                  </div>
-                  <div class="tabs-content">
-                    <div>
-                    <div class="image-comparison">
-                        <img src="./static/images/100613_left.png" alt="Left Image" style="width: 50%;">
-                        <img src="./static/images/100613_multi.png" alt="Right Image" style="width: 50%;">
-                    </div>
-                    <br>
-                      <div class="columns is-mobile has-text-centered">
-                        <div class="column is-one-half">(a) Front-Left (Mono)</div>
-                        <div class="column is-one-half">(b) Ours (Multi-Camera)</div>
-                      </div>
-                    </div>
-                    <div>
-                    <div class="image-comparison">
-                        <img src="./static/images/100613_front.png" alt="Left Image" style="width: 50%;">
-                        <img src="./static/images/100613_multi.png" alt="Right Image" style="width: 50%;">
-                    </div>
-                    <br>
-                      <div class="columns is-mobile has-text-centered">
-                        <div class="column is-one-half">(a) Front (Mono)</div>
-                        <div class="column is-one-half">(b) Ours (Multi-Camera)</div>
-                      </div>
-                    </div>
-                    <div>
-                    <div class="image-comparison">
-                        <img src="./static/images/100613_right.png" alt="Left Image" style="width: 50%;">
-                        <img src="./static/images/100613_multi.png" alt="Right Image" style="width: 50%;">
-                    </div>
-                    <br>
-                      <div class="columns is-mobile has-text-centered">
-                        <div class="column is-one-half">(a) Front-Right (Mono)</div>
                         <div class="column is-one-half">(b) Ours (Multi-Camera)</div>
                       </div>
                     </div>
@@ -487,8 +484,8 @@
           <div class="tabs-widget">
             <div class="tabs is-centered">
               <ul class="is-marginless">
-                <li class="is-active"><a>158686</a></li>
-                <li><a>100613</a></li>
+                <li class="is-active"><a>100613</a></li>
+                <li><a>158686</a></li>
                 <li><a>134763</a></li>
                 <li><a>106762</a></li>
               </ul>
@@ -498,6 +495,86 @@
             </div> -->
             <div class="tabs-content">
 
+              <div>
+                <div class="tabs-widget">
+                  <div class="tabs is-centered is-toggle is-toggle-rounded is-small">
+                    <ul class="is-marginless">
+                      <li class="is-active"><a>MonoGS vs. Ours (ELL)</a></li>
+                      <li><a>Metric3Dv2 vs. Ours (ELL)</a></li>
+                      <li><a>Hi-SLAM2 vs. Ours (ELL)</a></li>
+                      <li><a>MonoGS vs. Ours</a></li>
+                      <li><a>Metric3Dv2 vs. Ours</a></li>
+                      <li><a>Hi-SLAM2 vs. Ours</a></li>
+                    </ul>
+                  </div>
+                  <div class="tabs-content">
+                    <div>
+                      <video id="replay-video" controls muted preload playsinline autoplay loop width="100%">
+                        <source src="./static/videos/100613_monogs_gs.mp4" type="video/mp4">
+                      </video>
+                      <br>
+                      <div class="columns is-mobile has-text-centered">
+                        <div class="column is-one-half">(a) MonoGS (Mono)</div>
+                        <div class="column is-one-half">(b) Ours (Multi-Camera)</div>
+                      </div>
+                    </div>
+                    <div>
+                      <video id="replay-video" controls muted preload playsinline autoplay loop width="100%">
+                        <source src="./static/videos/100613_metric_gs.mp4" type="video/mp4">
+                      </video>
+                      <br>
+                      <div class="columns is-mobile has-text-centered">
+                        <div class="column is-one-half">(a) Metric3Dv2 (Mono)</div>
+                        <div class="column is-one-half">(b) Ours (Multi-Camera)</div>
+                      </div>
+                    </div>
+                    <div>
+                      <video id="replay-video" controls muted preload playsinline autoplay loop width="100%">
+                        <source src="./static/videos/100613_hislam_gs.mp4" type="video/mp4">
+                      </video>
+                      <br>
+                      <div class="columns is-mobile has-text-centered">
+                        <div class="column is-one-half">(a) Hi-SLAM2 (Mono)</div>
+                        <div class="column is-one-half">(b) Ours (Multi-Camera)</div>
+                      </div>
+                    </div>
+                    <div>
+                    <div class="image-comparison">
+                        <img src="./static/images/100613_monogs.png" alt="Left Image" style="width: 50%;">
+                        <img src="./static/images/100613_multi.png" alt="Right Image" style="width: 50%;">
+                    </div>
+                    <br>
+                      <div class="columns is-mobile has-text-centered">
+                        <div class="column is-one-half">(a) MonoGS (Mono)</div>
+                        <div class="column is-one-half">(b) Ours (Multi-Camera)</div>
+                      </div>
+                    </div>
+                    <div>
+                    <div class="image-comparison">
+                        <img src="./static/images/100613_metric.png" alt="Left Image" style="width: 50%;">
+                        <img src="./static/images/100613_multi.png" alt="Right Image" style="width: 50%;">
+                    </div>
+                    <br>
+                      <div class="columns is-mobile has-text-centered">
+                        <div class="column is-one-half">(a) Metric3Dv2 (Mono)</div>
+                        <div class="column is-one-half">(b) Ours (Multi-Camera)</div>
+                      </div>
+                    </div>
+                    <div>
+                    <div class="image-comparison">
+                        <img src="./static/images/100613_hislam.png" alt="Left Image" style="width: 50%;">
+                        <img src="./static/images/100613_multi.png" alt="Right Image" style="width: 50%;">
+                    </div>
+                    <br>
+                      <div class="columns is-mobile has-text-centered">
+                        <div class="column is-one-half">(a) Hi-SLAM2 (Mono)</div>
+                        <div class="column is-one-half">(b) Ours (Multi-Camera)</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Begin bicycle. -->
               <div>
                 <div class="tabs-widget">
                   <div class="tabs is-centered is-toggle is-toggle-rounded is-small">
@@ -534,53 +611,6 @@
                     <div class="image-comparison">
                         <img src="./static/images/158686_hislam.png" alt="Left Image" style="width: 50%;">
                         <img src="./static/images/158686_multi.png" alt="Right Image" style="width: 50%;">
-                    </div>
-                    <br>
-                      <div class="columns is-mobile has-text-centered">
-                        <div class="column is-one-half">(a) Hi-SLAM2 (Mono)</div>
-                        <div class="column is-one-half">(b) Ours (Multi-Camera)</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- Begin bicycle. -->
-              <div>
-                <div class="tabs-widget">
-                  <div class="tabs is-centered is-toggle is-toggle-rounded is-small">
-                    <ul class="is-marginless">
-                      <li class="is-active"><a>MonoGS vs. Ours</a></li>
-                      <li><a>Metric3Dv2 vs. Ours</a></li>
-                      <li><a>Hi-SLAM2 vs. Ours</a></li>
-                    </ul>
-                  </div>
-                  <div class="tabs-content">
-                    <div>
-                    <div class="image-comparison">
-                        <img src="./static/images/100613_monogs.png" alt="Left Image" style="width: 50%;">
-                        <img src="./static/images/100613_multi.png" alt="Right Image" style="width: 50%;">
-                    </div>
-                    <br>
-                      <div class="columns is-mobile has-text-centered">
-                        <div class="column is-one-half">(a) MonoGS (Mono)</div>
-                        <div class="column is-one-half">(b) Ours (Multi-Camera)</div>
-                      </div>
-                    </div>
-                    <div>
-                    <div class="image-comparison">
-                        <img src="./static/images/100613_metric.png" alt="Left Image" style="width: 50%;">
-                        <img src="./static/images/100613_multi.png" alt="Right Image" style="width: 50%;">
-                    </div>
-                    <br>
-                      <div class="columns is-mobile has-text-centered">
-                        <div class="column is-one-half">(a) Metric3Dv2 (Mono)</div>
-                        <div class="column is-one-half">(b) Ours (Multi-Camera)</div>
-                      </div>
-                    </div>
-                    <div>
-                    <div class="image-comparison">
-                        <img src="./static/images/100613_hislam.png" alt="Left Image" style="width: 50%;">
-                        <img src="./static/images/100613_multi.png" alt="Right Image" style="width: 50%;">
                     </div>
                     <br>
                       <div class="columns is-mobile has-text-centered">
@@ -741,12 +771,45 @@
                 <div class="tabs-widget">
                   <div class="tabs is-centered is-toggle is-toggle-rounded is-small">
                     <ul class="is-marginless">
-                      <li class="is-active"><a>MonoGS vs. Ours</a></li>
+                      <li class="is-active"><a>MonoGS vs. Ours (ELL)</a></li>
+                      <li><a>Metric3Dv2 vs. Ours (ELL)</a></li>
+                      <li><a>Hi-SLAM2 vs. Ours (ELL)</a></li>
+                      <li><a>MonoGS vs. Ours</a></li>
                       <li><a>Metric3Dv2 vs. Ours</a></li>
                       <li><a>Hi-SLAM2 vs. Ours</a></li>
                     </ul>
                   </div>
                   <div class="tabs-content">
+                    <div>
+                      <video id="replay-video" controls muted preload playsinline autoplay loop width="100%">
+                        <source src="./static/videos/sim3_monogs_gs.mp4" type="video/mp4">
+                      </video>
+                    <br>
+                      <div class="columns is-mobile has-text-centered">
+                        <div class="column is-one-half">(a) MonoGS (Mono)</div>
+                        <div class="column is-one-half">(b) Ours (Multi-Camera)</div>
+                      </div>
+                    </div>
+                    <div>
+                      <video id="replay-video" controls muted preload playsinline autoplay loop width="100%">
+                        <source src="./static/videos/sim3_metric_gs.mp4" type="video/mp4">
+                      </video>
+                    <br>
+                      <div class="columns is-mobile has-text-centered">
+                        <div class="column is-one-half">(a) Metric3Dv2 (Mono)</div>
+                        <div class="column is-one-half">(b) Ours (Multi-Camera)</div>
+                      </div>
+                    </div>
+                    <div>
+                      <video id="replay-video" controls muted preload playsinline autoplay loop width="100%">
+                        <source src="./static/videos/sim3_hislam_gs.mp4" type="video/mp4">
+                      </video>
+                    <br>
+                      <div class="columns is-mobile has-text-centered">
+                        <div class="column is-one-half">(a) Hi-SLAM2 (Mono)</div>
+                        <div class="column is-one-half">(b) Ours (Multi-Camera)</div>
+                      </div>
+                    </div>
                     <div>
                       <video id="replay-video" controls muted preload playsinline autoplay loop width="100%">
                         <source src="./static/videos/sim3_monogs.mp4" type="video/mp4">
