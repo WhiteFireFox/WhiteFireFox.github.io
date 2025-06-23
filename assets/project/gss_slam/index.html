@@ -134,7 +134,7 @@
   <section class="section">
     <div class="container is-max-desktop">
         <video id="teaser" width="100%" playsinline controls autoplay loop muted>
-            <source src="static/videos/introduction.mp4" type="video/mp4" />
+            <source src="static/videos/MCGS_Introduction.mp4" type="video/mp4" />
         </video>
         <script>
             document.getElementById('teaser').play();
@@ -757,92 +757,15 @@
           <div class="tabs-widget">
             <div class="tabs is-centered">
               <ul class="is-marginless">
-                <li class="is-active"><a>Garden</a></li>
-                <li><a>Factory</a></li>
+                <li class="is-active"><a>Factory</a></li>
                 <li><a>Village</a></li>
+                <li><a>Garden</a></li>
               </ul>
             </div>
             <!-- <div class="content has-text-centered is-size-7-mobile">
               Interactive visualization. Hover or tap to move the split.
             </div> -->
             <div class="tabs-content">
-
-              <div>
-                <div class="tabs-widget">
-                  <div class="tabs is-centered is-toggle is-toggle-rounded is-small">
-                    <ul class="is-marginless">
-                      <li class="is-active"><a>MonoGS vs. Ours (ELL)</a></li>
-                      <li><a>Droid_Metric3Dv2 vs. Ours (ELL)</a></li>
-                      <li><a>Hi-SLAM2 vs. Ours (ELL)</a></li>
-                      <li><a>MonoGS vs. Ours</a></li>
-                      <li><a>Droid_Metric3Dv2 vs. Ours</a></li>
-                      <li><a>Hi-SLAM2 vs. Ours</a></li>
-                    </ul>
-                  </div>
-                  <div class="tabs-content">
-                    <div>
-                      <video id="replay-video" controls muted preload playsinline autoplay loop width="100%">
-                        <source src="./static/videos/sim3_monogs_gs.mp4" type="video/mp4">
-                      </video>
-                    <br>
-                      <div class="columns is-mobile has-text-centered">
-                        <div class="column is-one-half">(a) MonoGS (Mono)</div>
-                        <div class="column is-one-half">(b) Ours (Multi-Camera)</div>
-                      </div>
-                    </div>
-                    <div>
-                      <video id="replay-video" controls muted preload playsinline autoplay loop width="100%">
-                        <source src="./static/videos/sim3_metric_gs.mp4" type="video/mp4">
-                      </video>
-                    <br>
-                      <div class="columns is-mobile has-text-centered">
-                        <div class="column is-one-half">(a) Droid_Metric3Dv2 (Mono)</div>
-                        <div class="column is-one-half">(b) Ours (Multi-Camera)</div>
-                      </div>
-                    </div>
-                    <div>
-                      <video id="replay-video" controls muted preload playsinline autoplay loop width="100%">
-                        <source src="./static/videos/sim3_hislam_gs.mp4" type="video/mp4">
-                      </video>
-                    <br>
-                      <div class="columns is-mobile has-text-centered">
-                        <div class="column is-one-half">(a) Hi-SLAM2 (Mono)</div>
-                        <div class="column is-one-half">(b) Ours (Multi-Camera)</div>
-                      </div>
-                    </div>
-                    <div>
-                      <video id="replay-video" controls muted preload playsinline autoplay loop width="100%">
-                        <source src="./static/videos/sim3_monogs.mp4" type="video/mp4">
-                      </video>
-                    <br>
-                      <div class="columns is-mobile has-text-centered">
-                        <div class="column is-one-half">(a) MonoGS (Mono)</div>
-                        <div class="column is-one-half">(b) Ours (Multi-Camera)</div>
-                      </div>
-                    </div>
-                    <div>
-                      <video id="replay-video" controls muted preload playsinline autoplay loop width="100%">
-                        <source src="./static/videos/sim3_metric.mp4" type="video/mp4">
-                      </video>
-                    <br>
-                      <div class="columns is-mobile has-text-centered">
-                        <div class="column is-one-half">(a) Droid_Metric3Dv2 (Mono)</div>
-                        <div class="column is-one-half">(b) Ours (Multi-Camera)</div>
-                      </div>
-                    </div>
-                    <div>
-                      <video id="replay-video" controls muted preload playsinline autoplay loop width="100%">
-                        <source src="./static/videos/sim3_hislam.mp4" type="video/mp4">
-                      </video>
-                    <br>
-                      <div class="columns is-mobile has-text-centered">
-                        <div class="column is-one-half">(a) Hi-SLAM2 (Mono)</div>
-                        <div class="column is-one-half">(b) Ours (Multi-Camera)</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
 
               <div>
                 <div class="tabs-widget">
@@ -932,8 +855,83 @@
                 </div>
               </div>
 
-              <!-- End flowerbed. -->
-              <!-- Begin gardenvase. -->
+              <div>
+                <div class="tabs-widget">
+                  <div class="tabs is-centered is-toggle is-toggle-rounded is-small">
+                    <ul class="is-marginless">
+                      <li class="is-active"><a>MonoGS vs. Ours (ELL)</a></li>
+                      <li><a>Droid_Metric3Dv2 vs. Ours (ELL)</a></li>
+                      <li><a>Hi-SLAM2 vs. Ours (ELL)</a></li>
+                      <li><a>MonoGS vs. Ours</a></li>
+                      <li><a>Droid_Metric3Dv2 vs. Ours</a></li>
+                      <li><a>Hi-SLAM2 vs. Ours</a></li>
+                    </ul>
+                  </div>
+                  <div class="tabs-content">
+                    <div>
+                      <video id="replay-video" controls muted preload playsinline autoplay loop width="100%">
+                        <source src="./static/videos/sim3_monogs_gs.mp4" type="video/mp4">
+                      </video>
+                    <br>
+                      <div class="columns is-mobile has-text-centered">
+                        <div class="column is-one-half">(a) MonoGS (Mono)</div>
+                        <div class="column is-one-half">(b) Ours (Multi-Camera)</div>
+                      </div>
+                    </div>
+                    <div>
+                      <video id="replay-video" controls muted preload playsinline autoplay loop width="100%">
+                        <source src="./static/videos/sim3_metric_gs.mp4" type="video/mp4">
+                      </video>
+                    <br>
+                      <div class="columns is-mobile has-text-centered">
+                        <div class="column is-one-half">(a) Droid_Metric3Dv2 (Mono)</div>
+                        <div class="column is-one-half">(b) Ours (Multi-Camera)</div>
+                      </div>
+                    </div>
+                    <div>
+                      <video id="replay-video" controls muted preload playsinline autoplay loop width="100%">
+                        <source src="./static/videos/sim3_hislam_gs.mp4" type="video/mp4">
+                      </video>
+                    <br>
+                      <div class="columns is-mobile has-text-centered">
+                        <div class="column is-one-half">(a) Hi-SLAM2 (Mono)</div>
+                        <div class="column is-one-half">(b) Ours (Multi-Camera)</div>
+                      </div>
+                    </div>
+                    <div>
+                      <video id="replay-video" controls muted preload playsinline autoplay loop width="100%">
+                        <source src="./static/videos/sim3_monogs.mp4" type="video/mp4">
+                      </video>
+                    <br>
+                      <div class="columns is-mobile has-text-centered">
+                        <div class="column is-one-half">(a) MonoGS (Mono)</div>
+                        <div class="column is-one-half">(b) Ours (Multi-Camera)</div>
+                      </div>
+                    </div>
+                    <div>
+                      <video id="replay-video" controls muted preload playsinline autoplay loop width="100%">
+                        <source src="./static/videos/sim3_metric.mp4" type="video/mp4">
+                      </video>
+                    <br>
+                      <div class="columns is-mobile has-text-centered">
+                        <div class="column is-one-half">(a) Droid_Metric3Dv2 (Mono)</div>
+                        <div class="column is-one-half">(b) Ours (Multi-Camera)</div>
+                      </div>
+                    </div>
+                    <div>
+                      <video id="replay-video" controls muted preload playsinline autoplay loop width="100%">
+                        <source src="./static/videos/sim3_hislam.mp4" type="video/mp4">
+                      </video>
+                    <br>
+                      <div class="columns is-mobile has-text-centered">
+                        <div class="column is-one-half">(a) Hi-SLAM2 (Mono)</div>
+                        <div class="column is-one-half">(b) Ours (Multi-Camera)</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
             </div>
           </div>
         </div>
