@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Zhihao Cao</title>
   <meta name="description" content="Zhihao Cao — Master student at ETH Zurich. Research in multi-robot systems, cooperative manipulation, and coordination in robotics." />
   <meta name="author" content="Zhihao Cao" />
@@ -12,219 +12,193 @@
   <meta property="og:title" content="Zhihao Cao" />
   <meta property="og:description" content="Master student at ETH Zurich. Research in multi-robot systems and cooperative manipulation." />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="assets/profile.jpg" />
+  <meta property="og:url" content="https://zhihaocao.com/" />
+  <meta property="og:image" content="https://zhihaocao.com/assets/profile.jpg" />
 
   <link rel="icon" href="assets/favicon.png" type="image/png" />
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Newsreader:ital,opt,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="css/style.css" />
+  <!-- inline so the theme and the reveal styles apply from the first paint -->
+  <script>
+    (function () {
+      var d = document.documentElement, t = null;
+      d.classList.add("js");
+      try { t = localStorage.getItem("zc-theme"); } catch (e) {}
+      if (!t) t = window.matchMedia && matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      d.setAttribute("data-theme", t);
+    })();
+  </script>
+  <script src="js/main.js" defer onerror="document.documentElement.classList.remove('js')"></script>
 </head>
 <body>
-  <!-- Decorative gradient backdrop -->
-  <div class="bg-aurora" aria-hidden="true"></div>
+  <a class="skip" href="#main">Skip to content</a>
 
-  <!-- ============ NAVBAR ============ -->
-  <header class="nav" id="navbar">
-    <div class="nav__inner">
-      <a href="#home" class="nav__brand">
-        <span class="nav__brand-name">Zhihao&nbsp;Cao</span>
-      </a>
-
-      <nav class="nav__links" id="navLinks">
-        <a href="#about" class="nav__link">About</a>
-        <a href="#publications" class="nav__link">Publications</a>
-        <a href="#projects" class="nav__link">Projects</a>
-        <a href="#education" class="nav__link">Education</a>
-        <a href="#awards" class="nav__link">Awards</a>
-        <a href="#teaching" class="nav__link">Teaching</a>
-        <a href="#service" class="nav__link">Service</a>
-      </nav>
-
-      <div class="nav__actions">
-        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" title="Toggle theme">
-          <svg class="icon-sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
-          <svg class="icon-moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-        </button>
-        <button class="nav__burger" id="navBurger" aria-label="Open menu">
-          <span></span><span></span><span></span>
-        </button>
+  <!-- ============ NAV ============ -->
+  <nav class="nav" aria-label="Zhihao Cao">
+    <a class="nav-title" href="#top">Zhihao Cao</a>
+    <button class="pill out icon" id="themeToggle" type="button" aria-label="Toggle dark mode" title="Toggle theme">
+      <svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></g></svg>
+    </button>
+    <div class="explore">
+      <button class="pill out" id="exploreBtn" type="button" aria-expanded="false" aria-controls="exploreMenu">Explore</button>
+      <div class="explore-menu" id="exploreMenu" hidden>
+        <a href="#publications">Publications</a>
+        <a href="#projects">Projects</a>
+        <a href="#education">Education</a>
+        <a href="#awards">Honors &amp; awards</a>
+        <a href="#teaching">Teaching</a>
+        <a href="#service">Service</a>
       </div>
     </div>
-    <div class="nav__progress" id="navProgress"></div>
-  </header>
+    <a class="pill out hide-sm" href="https://scholar.google.com/citations?user=wr1bDPoAAAAJ&hl=en" target="_blank" rel="noopener">Scholar</a>
+    <a class="pill solid" href="mailto:m.zhihaocao@gmail.com">Contact</a>
+  </nav>
 
-  <main>
-    <!-- ============ HERO / PROFILE ============ -->
-    <section class="hero" id="home">
-      <div class="hero__photo-wrap reveal">
-        <div class="hero__photo-ring">
-          <img src="assets/profile.jpg" alt="Zhihao Cao" class="hero__photo" />
+  <main id="main">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="top">
+      <div class="wrap">
+        <p class="eyebrow rv">Hello, I'm</p>
+        <h1 class="hero-name rv">Zhihao Cao</h1>
+        <p class="hero-sub rv">Multi-robot systems, cooperative manipulation, <br>and interaction &amp; coordination in robotics.</p>
+        <div class="portrait rv">
+          <img src="assets/profile.jpg" width="983" height="983" alt="Portrait of Zhihao Cao" fetchpriority="high" />
         </div>
-        <div class="hero__status"><span class="dot"></span> Zürich, Switzerland</div>
-      </div>
-
-      <div class="hero__intro">
-        <p class="hero__eyebrow reveal">Hello, I'm</p>
-        <h1 class="hero__name reveal">Zhihao&nbsp;Cao</h1>
-        <p class="hero__title reveal">
-          Master Student in Computational Science &amp; Engineering
-        </p>
-        <p class="hero__affil reveal">
-          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-3"/></svg>
-          Department of Mathematics, <strong>ETH&nbsp;Zürich</strong>
-        </p>
-
-        <ul class="hero__interests reveal">
-          <li>Multi-Robot Systems</li>
-          <li>Cooperative Manipulation</li>
-          <li>Interaction &amp; Coordination</li>
-        </ul>
-
-        <div class="hero__socials reveal">
-          <a class="social" href="mailto:m.zhihaocao@gmail.com" title="Email" aria-label="Email">
-            <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
-            <span>Email</span>
-          </a>
-          <a class="social" href="https://scholar.google.com/citations?user=wr1bDPoAAAAJ&hl=en" target="_blank" rel="noopener" title="Google Scholar" aria-label="Google Scholar">
-            <svg viewBox="0 0 24 24" width="19" height="19" fill="currentColor"><path d="M12 3 1 9l11 6 9-4.91V17h2V9L12 3z"/><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/></svg>
-            <span>Scholar</span>
-          </a>
-          <a class="social" href="https://github.com/WhiteFireFox" target="_blank" rel="noopener" title="GitHub" aria-label="GitHub">
-            <svg viewBox="0 0 24 24" width="19" height="19" fill="currentColor"><path d="M12 1.5a10.5 10.5 0 0 0-3.32 20.46c.52.1.71-.23.71-.5v-1.76c-2.89.63-3.5-1.4-3.5-1.4-.47-1.2-1.15-1.52-1.15-1.52-.94-.64.07-.63.07-.63 1.04.07 1.59 1.07 1.59 1.07.93 1.59 2.43 1.13 3.02.86.1-.67.36-1.13.66-1.39-2.31-.26-4.73-1.15-4.73-5.13 0-1.13.4-2.06 1.07-2.79-.11-.26-.46-1.31.1-2.73 0 0 .87-.28 2.85 1.06a9.9 9.9 0 0 1 5.18 0c1.98-1.34 2.85-1.06 2.85-1.06.56 1.42.21 2.47.1 2.73.67.73 1.07 1.66 1.07 2.79 0 3.99-2.43 4.86-4.74 5.12.37.32.7.95.7 1.92v2.85c0 .27.19.61.72.5A10.5 10.5 0 0 0 12 1.5z"/></svg>
-            <span>GitHub</span>
-          </a>
-          <a class="social" href="https://orcid.org/0000-0003-1840-8947" target="_blank" rel="noopener" title="ORCID" aria-label="ORCID">
-            <svg viewBox="0 0 24 24" width="19" height="19" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zM7.37 18.13H5.62V7.71h1.75v10.42zM6.5 6.56a1.02 1.02 0 1 1 0-2.05 1.02 1.02 0 0 1 0 2.05zm11.5 11.57h-1.74v-5.06c0-1.45-.52-2.44-1.81-2.44-.99 0-1.57.66-1.83 1.31-.1.23-.12.55-.12.87v5.32h-1.74s.02-8.63 0-9.52h1.74v1.35c.23-.36.65-.87 1.58-.87 1.15 0 2.01.75 2.01 2.37v6.67z"/></svg>
-            <span>ORCID</span>
-          </a>
-          <a class="social" href="https://www.linkedin.com/in/zhihao-cao-980289285" target="_blank" rel="noopener" title="LinkedIn" aria-label="LinkedIn">
-            <svg viewBox="0 0 24 24" width="19" height="19" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45C23.2 24 24 23.23 24 22.28V1.72C24 .77 23.2 0 22.22 0z"/></svg>
-            <span>LinkedIn</span>
-          </a>
+        <div class="buy rv">
+          <p>Master Student in Computational Science &amp; Engineering<span>Department of Mathematics, ETH Zürich</span></p>
+          <a class="cta" href="mailto:m.zhihaocao@gmail.com">Get in touch</a>
         </div>
+        <p class="links rv">
+          <a href="https://scholar.google.com/citations?user=wr1bDPoAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar <span aria-hidden="true">›</span></a>
+          <a href="https://github.com/WhiteFireFox" target="_blank" rel="noopener">GitHub <span aria-hidden="true">›</span></a>
+          <a href="https://orcid.org/0000-0003-1840-8947" target="_blank" rel="noopener">ORCID <span aria-hidden="true">›</span></a>
+          <a href="https://www.linkedin.com/in/zhihao-cao-980289285" target="_blank" rel="noopener">LinkedIn <span aria-hidden="true">›</span></a>
+        </p>
       </div>
     </section>
 
-    <div class="container">
-      <!-- ============ ABOUT ============ -->
-      <section class="section" id="about">
-        <div class="section__head reveal">
-          <h2 class="section__title">About</h2>
+    <!-- ============ PUBLICATIONS ============ -->
+    <section class="sec band" id="publications">
+      <div class="wrap sec-head headrow">
+        <div>
+          <p class="eyebrow rv">Publications</p>
+          <h2 class="sec-title rv">A collection of my research work.</h2>
         </div>
-        <div class="about reveal">
-          <p>
-            I am a master student at <strong>ETH&nbsp;Zürich</strong>, pursuing a master's degree in
-            Computational Science and Engineering in the Department of Mathematics. I really love
-            animals, especially cats. One of my dreams is to become financially independent so that I can finally adopt a cat and have a furry friend in my life.
-          </p>
-          <p>
-            Previously, I graduated from <strong>Harbin Institute of Technology, Shenzhen</strong> with a
-            bachelor's degree in Automation. I spent a wonderful time working at <strong>AIRS</strong> in 2023,
-            and I was also fortunate to be a remote intern at <strong>Baidu&nbsp;Inc.</strong> working on
-            deep learning from 2020 to 2023.
-          </p>
-          <p>
-            My current research focuses on <span class="hl">multi-robot systems</span>,
-            <span class="hl">cooperative manipulation</span>, and the interaction and coordination mechanisms
-            that enable efficient robotic teamwork.
-          </p>
-        </div>
+        <a class="lnk rv" href="https://scholar.google.com/citations?user=wr1bDPoAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar <span aria-hidden="true">›</span></a>
+      </div>
 
-        <!-- News -->
-        <div class="news reveal">
-          <h3 class="news__title">News</h3>
-          <ul class="news__list">
-            <li class="news__item">
-              <span class="news__date">Feb 2026</span>
-              <span class="news__text"><strong>MCGS-SLAM</strong> is accepted to ICRA 2026. A multi-camera SLAM framework with Gaussian Splatting.</span>
-            </li>
-            <li class="news__item">
-              <span class="news__date">Feb 2023</span>
-              <span class="news__text">Our work on <strong>Cable-Driven Parallel Robots</strong> is published in IEEE RA-L.</span>
-            </li>
-          </ul>
-        </div>
-      </section>
+      <div class="wrap track pub-track" id="pubTrack">
+        <article class="pub" id="pub-paint">
+          <a class="pub-media" href="https://paint-bot.github.io/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+            <img src="assets/paint.jpg" width="1600" height="900" alt="" loading="lazy" />
+          </a>
+          <div class="pub-body">
+            <p class="pub-venue">RA-L 2026</p>
+            <h3 class="pub-title">PAINT: Partner-Agnostic Intent-Aware Cooperative Transport with Legged Robots</h3>
+            <p class="pub-authors">
+              <span class="me">Zhihao Cao*</span>, Tianxu An*, Chenhao Li, Stelian Coros, Marco Hutter
+            </p>
+            <p class="pub-where">IEEE Robotics and Automation Letters <span class="nw">(RA-L)</span>, 2026</p>
+            <div class="pub-btns">
+              <a class="btn solid" href="https://ieeexplore.ieee.org/document/11675843/" target="_blank" rel="noopener">Paper</a>
+              <a class="btn" href="https://arxiv.org/abs/2604.12852" target="_blank" rel="noopener">arXiv</a>
+              <a class="btn" href="https://paint-bot.github.io/" target="_blank" rel="noopener">Media</a>
+              <button class="btn" type="button" data-bib="bib-paint">BibTeX</button>
+            </div>
+            <pre class="bibsrc" id="bib-paint" hidden>@article{cao2026paint,
+  title   = {PAINT: Partner-Agnostic Intent-Aware Cooperative Transport With Legged Robots},
+  author  = {Cao, Zhihao and An, Tianxu and Li, Chenhao and Coros, Stelian and Hutter, Marco},
+  journal = {IEEE Robotics and Automation Letters},
+  volume  = {11},
+  number  = {11},
+  pages   = {12312--12319},
+  year    = {2026},
+  doi     = {10.1109/LRA.2026.3730304}
+}</pre>
+          </div>
+        </article>
 
-      <!-- ============ PUBLICATIONS ============ -->
-      <section class="section" id="publications">
-        <div class="section__head reveal">
-          <h2 class="section__title">Publications</h2>
-        </div>
-        <p class="section__lead reveal">A collection of my research work.</p>
+        <article class="pub" id="pub-mags">
+          <a class="pub-media" href="https://mags-slam.github.io/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+            <img src="assets/mags_slam.jpg" width="1280" height="720" alt="" loading="lazy" />
+          </a>
+          <div class="pub-body">
+            <p class="pub-venue">T-ASE 2026</p>
+            <h3 class="pub-title">MAGS-SLAM: Monocular Multi-Agent Gaussian Splatting SLAM for Geometrically and Photometrically Consistent Reconstruction</h3>
+            <p class="pub-authors">
+              <span class="me">Zhihao Cao*</span>, Qi Shao*, Shuhao Zhai*, Jing Zhang, Anh Nguyen,
+              Hesheng Wang, Baoru Huang
+            </p>
+            <p class="pub-where">IEEE Transactions on Automation Science and Engineering <span class="nw">(T-ASE)</span>, 2026</p>
+            <div class="pub-btns">
+              <a class="btn solid" href="https://arxiv.org/abs/2605.10760" target="_blank" rel="noopener">arXiv</a>
+              <a class="btn" href="https://mags-slam.github.io/" target="_blank" rel="noopener">Media</a>
+              <a class="btn" href="https://mags-slam.github.io/dataset/" target="_blank" rel="noopener">Data</a>
+              <button class="btn" type="button" data-bib="bib-mags">BibTeX</button>
+            </div>
+            <pre class="bibsrc" id="bib-mags" hidden>@article{cao2026mags,
+  title   = {MAGS-SLAM: Monocular Multi-Agent Gaussian Splatting SLAM for Geometrically and Photometrically Consistent Reconstruction},
+  author  = {Cao, Zhihao and Shao, Qi and Zhai, Shuhao and Zhang, Jing and Nguyen, Anh and Wang, Hesheng and Huang, Baoru},
+  journal = {IEEE Transactions on Automation Science and Engineering},
+  year    = {2026}
+}</pre>
+          </div>
+        </article>
 
-        <div class="pub-list">
-          <!-- Publication 1 -->
-          <article class="pub reveal">
-            <a class="pub__media" href="https://zhihao-ethz.github.io/mcgs-slam/" target="_blank" rel="noopener">
-              <img src="assets/mcgs_slam.png" alt="MCGS-SLAM" loading="lazy" />
-            </a>
-            <div class="pub__body">
-              <h3 class="pub__title">MCGS-SLAM: A Multi-Camera SLAM Framework using Gaussian Splatting for High-Fidelity Mapping</h3>
-              <p class="pub__authors">
-                <span class="me">Zhihao Cao</span>, Hanyu Wu, Li Wa Tang, Zizhou Luo, Wei Zhang,
-                Marc Pollefeys, Zihan Zhu, Martin R. Oswald
-              </p>
-              <p class="pub__journal"><em>IEEE International Conference on Robotics and Automation (ICRA)</em>, 2026</p>
-              <div class="pub__links">
-                <a class="chip" href="https://arxiv.org/abs/2509.14191" target="_blank" rel="noopener">
-                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
-                  arXiv
-                </a>
-                <a class="chip" href="https://zhihao-ethz.github.io/mcgs-slam/" target="_blank" rel="noopener">
-                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
-                  Media
-                </a>
-                <a class="chip" href="https://github.com/mcgs-slam/mcgs-slam" target="_blank" rel="noopener">
-                  <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 1.5a10.5 10.5 0 0 0-3.32 20.46c.52.1.71-.23.71-.5v-1.76c-2.89.63-3.5-1.4-3.5-1.4-.47-1.2-1.15-1.52-1.15-1.52-.94-.64.07-.63.07-.63 1.04.07 1.59 1.07 1.59 1.07.93 1.59 2.43 1.13 3.02.86.1-.67.36-1.13.66-1.39-2.31-.26-4.73-1.15-4.73-5.13 0-1.13.4-2.06 1.07-2.79-.11-.26-.46-1.31.1-2.73 0 0 .87-.28 2.85 1.06a9.9 9.9 0 0 1 5.18 0c1.98-1.34 2.85-1.06 2.85-1.06.56 1.42.21 2.47.1 2.73.67.73 1.07 1.66 1.07 2.79 0 3.99-2.43 4.86-4.74 5.12.37.32.7.95.7 1.92v2.85c0 .27.19.61.72.5A10.5 10.5 0 0 0 12 1.5z"/></svg>
-                  Code
-                </a>
-                <button class="chip chip--ghost" data-bibtex="mcgs">
-                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7V5a2 2 0 0 1 2-2h2M4 17v2a2 2 0 0 0 2 2h2M20 7V5a2 2 0 0 0-2-2h-2M20 17v2a2 2 0 0 1-2 2h-2"/></svg>
-                  BibTeX
-                </button>
-              </div>
-              <pre class="pub__bibtex" id="bib-mcgs">@article{cao2025mcgs,
+        <article class="pub" id="pub-mcgs">
+          <a class="pub-media" href="https://zhihao-ethz.github.io/mcgs-slam/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+            <img src="assets/mcgs_slam.jpg" width="1280" height="720" alt="" loading="lazy" />
+          </a>
+          <div class="pub-body">
+            <p class="pub-venue">ICRA 2026</p>
+            <h3 class="pub-title">MCGS-SLAM: A Multi-Camera SLAM Framework using Gaussian Splatting for High-Fidelity Mapping</h3>
+            <p class="pub-authors">
+              <span class="me">Zhihao Cao</span>, Hanyu Wu, Li Wa Tang, Zizhou Luo, Wei Zhang,
+              Marc Pollefeys, Zihan Zhu, Martin R. Oswald
+            </p>
+            <p class="pub-where">IEEE International Conference on Robotics and Automation (ICRA), 2026</p>
+            <div class="pub-btns">
+              <a class="btn solid" href="https://ieeexplore.ieee.org/abstract/document/11696867" target="_blank" rel="noopener">Paper</a>
+              <a class="btn" href="https://arxiv.org/abs/2509.14191" target="_blank" rel="noopener">arXiv</a>
+              <a class="btn" href="https://zhihao-ethz.github.io/mcgs-slam/" target="_blank" rel="noopener">Media</a>
+              <a class="btn" href="https://github.com/mcgs-slam/mcgs-slam" target="_blank" rel="noopener">Code</a>
+              <button class="btn" type="button" data-bib="bib-mcgs">BibTeX</button>
+            </div>
+            <pre class="bibsrc" id="bib-mcgs" hidden>@article{cao2025mcgs,
   title   = {MCGS-SLAM: A multi-camera SLAM framework using Gaussian Splatting for high-fidelity mapping},
   author  = {Cao, Zhihao and Wu, Hanyu and Tang, Li Wa and Luo, Zizhou and Zhang, Wei and Pollefeys, Marc and Zhu, Zihan and Oswald, Martin R},
   journal = {IEEE International Conference on Robotics and Automation (ICRA)},
   year    = {2026},
   doi     = {10.48550/arXiv.2509.14191}
 }</pre>
-            </div>
-          </article>
+          </div>
+        </article>
 
-          <!-- Publication 2 -->
-          <article class="pub reveal">
-            <a class="pub__media" href="https://youtu.be/eBqkXWQzoIM" target="_blank" rel="noopener">
-              <img src="assets/rl_mcdpr.jpg" alt="Cable-driven parallel robot" loading="lazy" />
-            </a>
-            <div class="pub__body">
-              <h3 class="pub__title">Dynamic Obstacle Avoidance for Cable-Driven Parallel Robots with Mobile Bases via Sim-to-Real Reinforcement Learning</h3>
-              <p class="pub__authors">
-                Yuming Liu, <span class="me">Zhihao Cao</span>, Hao Xiong,
-                Junfeng Du, Huanhui Cao, Lin Zhang
-              </p>
-              <p class="pub__journal"><em>IEEE Robotics and Automation Letters (RA-L)</em>, 2023</p>
-              <div class="pub__links">
-                <a class="chip" href="https://doi.org/10.1109/LRA.2023.3241801" target="_blank" rel="noopener">
-                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
-                  Paper
-                </a>
-                <a class="chip" href="https://youtu.be/eBqkXWQzoIM" target="_blank" rel="noopener">
-                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
-                  Media
-                </a>
-                <button class="chip chip--ghost" data-bibtex="lra">
-                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7V5a2 2 0 0 1 2-2h2M4 17v2a2 2 0 0 0 2 2h2M20 7V5a2 2 0 0 0-2-2h-2M20 17v2a2 2 0 0 1-2 2h-2"/></svg>
-                  BibTeX
-                </button>
-              </div>
-              <pre class="pub__bibtex" id="bib-lra">@article{liu2023dynamic,
+        <article class="pub" id="pub-lra">
+          <a class="pub-media" href="https://youtu.be/eBqkXWQzoIM" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+            <img src="assets/rl_mcdpr.jpg" width="1920" height="1080" alt="" loading="lazy" />
+          </a>
+          <div class="pub-body">
+            <p class="pub-venue">RA-L 2023</p>
+            <h3 class="pub-title">Dynamic Obstacle Avoidance for Cable-Driven Parallel Robots with Mobile Bases via Sim-to-Real Reinforcement Learning</h3>
+            <p class="pub-authors">
+              Yuming Liu*, <span class="me">Zhihao Cao*</span>, Hao Xiong,
+              Junfeng Du, Huanhui Cao, Lin Zhang
+            </p>
+            <p class="pub-where">IEEE Robotics and Automation Letters <span class="nw">(RA-L)</span>, 2023</p>
+            <div class="pub-btns">
+              <a class="btn solid" href="https://doi.org/10.1109/LRA.2023.3241801" target="_blank" rel="noopener">Paper</a>
+              <a class="btn" href="https://youtu.be/eBqkXWQzoIM" target="_blank" rel="noopener">Media</a>
+              <button class="btn" type="button" data-bib="bib-lra">BibTeX</button>
+            </div>
+            <pre class="bibsrc" id="bib-lra" hidden>@article{liu2023dynamic,
   title     = {Dynamic obstacle avoidance for cable-driven parallel robots with mobile bases via sim-to-real reinforcement learning},
   author    = {Liu, Yuming and Cao, Zhihao and Xiong, Hao and Du, Junfeng and Cao, Huanhui and Zhang, Lin},
   journal   = {IEEE Robotics and Automation Letters},
@@ -235,208 +209,166 @@
   publisher = {IEEE},
   doi       = {10.1109/LRA.2023.3241801}
 }</pre>
-            </div>
+          </div>
+        </article>
+      </div>
+      <div class="pager" data-for="pubTrack" role="group" aria-label="Choose a publication"></div>
+    </section>
+
+    <!-- ============ PROJECTS ============ -->
+    <section class="sec clip" id="projects">
+      <div class="wrap sec-head headrow">
+        <h2 class="sec-title rv">Projects.</h2>
+        <a class="lnk rv" href="https://github.com/WhiteFireFox" target="_blank" rel="noopener">More on GitHub <span aria-hidden="true">›</span></a>
+      </div>
+      <div class="track ptrack" id="pTrack">
+        <article class="ptile">
+          <p class="ptile-sub">ABU Asia-Pacific Robot Contest · 2021</p>
+          <h3>The 20th ROBOCON</h3>
+          <p class="ptile-desc">The 20th ROBOCON is a robotics competition inspired by the ancient Chinese game Touhu, where each team independently designs robots to score by throwing arrows into pots while balancing accuracy, strategy, and defense.</p>
+          <a class="more" href="https://youtu.be/h0kgPN74DZY" target="_blank" rel="noopener">Watch the video <span aria-hidden="true">›</span></a>
+          <a class="ptile-media" href="https://youtu.be/h0kgPN74DZY" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+            <img src="assets/robocon.png" width="5832" height="3280" alt="" loading="lazy" />
+          </a>
+        </article>
+
+        <article class="ptile">
+          <p class="ptile-sub">Solving PDEs in Parallel on GPUs · 2024</p>
+          <h3>3D Thermo-mechanical Convection</h3>
+          <p class="ptile-desc">A GPU-parallel solver for 3D thermo-mechanical convection, implemented in Julia with distributed multi-GPU computation.</p>
+          <a class="more" href="https://github.com/WhiteFireFox/ThermalConvection3D.jl" target="_blank" rel="noopener">View the code <span aria-hidden="true">›</span></a>
+          <a class="ptile-media" href="https://github.com/WhiteFireFox/ThermalConvection3D.jl" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+            <video src="assets/thermal_convection.mp4" autoplay muted loop playsinline preload="metadata" disablepictureinpicture></video>
+          </a>
+        </article>
+
+        <article class="ptile">
+          <p class="ptile-sub">AI in the Sciences and Engineering · 2024</p>
+          <h3>Modeling Water Flow on the Sphere with Fourier Neural Operator</h3>
+          <p class="ptile-desc">A Spherical Fourier Neural Operator (SFNO) that learns shallow-water dynamics on the sphere, capturing global flow patterns.</p>
+          <a class="more" href="https://github.com/WhiteFireFox/SFNO_Shallowwater" target="_blank" rel="noopener">View the code <span aria-hidden="true">›</span></a>
+          <a class="ptile-media dark" href="https://github.com/WhiteFireFox/SFNO_Shallowwater" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+            <video class="cover" src="assets/sfno.mp4" autoplay muted loop playsinline preload="metadata" disablepictureinpicture></video>
+          </a>
+        </article>
+      </div>
+      <div class="wrap arrows" data-for="pTrack">
+        <button class="arrow" type="button" data-dir="-1" aria-label="Previous project"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M10 3L5 8l5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <button class="arrow" type="button" data-dir="1" aria-label="Next project"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      </div>
+    </section>
+
+    <!-- ============ EDUCATION ============ -->
+    <section class="sec band" id="education">
+      <div class="wrap">
+        <div class="sec-head"><h2 class="sec-title rv">Education.</h2></div>
+        <div class="duo">
+          <article class="ttile rv">
+            <p class="ttile-k">2023 – Present</p>
+            <h3>ETH Zürich</h3>
+            <p class="ttile-role">M.Sc. in Computational Science and Engineering</p>
+            <p class="ttile-where">Current GPA <b>5.8 / 6.0</b></p>
+            <p class="tags"><span>Multi-Robot Systems</span><span>Interaction &amp; Coordination in Robotics</span></p>
+          </article>
+          <article class="ttile rv">
+            <p class="ttile-k">2019 – 2023</p>
+            <h3>Harbin Institute of Technology, Shenzhen</h3>
+            <p class="ttile-role">B.Eng. in Automation</p>
+            <p class="ttile-where">GPA <b>90.3 / 100</b> · Outstanding Bachelor Degree Graduates</p>
+            <p class="tags"><span>SLAM</span><span>Cable-Driven Parallel Robots</span><span>Reinforcement Learning</span></p>
           </article>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- ============ PROJECTS ============ -->
-      <section class="section" id="projects">
-        <div class="section__head reveal">
-          <h2 class="section__title">Projects</h2>
-        </div>
-        <p class="section__lead reveal">A collection of my projects.</p>
-
-        <div class="proj-list">
-          <article class="proj reveal">
-            <a class="proj__media" href="https://youtu.be/h0kgPN74DZY" target="_blank" rel="noopener">
-              <img src="assets/robocon.png" alt="The 20th ROBOCON" loading="lazy" />
-            </a>
-            <div class="proj__body">
-              <h3 class="proj__title">The 20th ROBOCON</h3>
-              <p class="proj__sub">ABU Asia-Pacific Robot Contest · 2021</p>
-              <p class="proj__desc">The 20th ROBOCON is a robotics competition inspired by the ancient Chinese game Touhu, where each team independently designs robots to score by throwing arrows into pots while balancing accuracy, strategy, and defense.</p>
-              <div class="pub__links">
-                <a class="chip" href="https://youtu.be/h0kgPN74DZY" target="_blank" rel="noopener">
-                  <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.12-2.12C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.38.58A3 3 0 0 0 .5 6.2 31.3 31.3 0 0 0 0 12a31.3 31.3 0 0 0 .5 5.8 3 3 0 0 0 2.12 2.12C4.5 20.5 12 20.5 12 20.5s7.5 0 9.38-.58a3 3 0 0 0 2.12-2.12A31.3 31.3 0 0 0 24 12a31.3 31.3 0 0 0-.5-5.8zM9.6 15.6V8.4l6.2 3.6z"/></svg>
-                  Video
-                </a>
-              </div>
+    <!-- ============ AWARDS ============ -->
+    <section class="sec" id="awards">
+      <div class="wrap">
+        <div class="sec-head"><h2 class="sec-title rv">Honors &amp; awards.</h2></div>
+        <ul class="awards">
+          <li class="award ic-blue rv">
+            <span class="award-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M22 9.5 12 4.5 2 9.5l10 5 10-5z"/><path d="M6 11.5v5c3.2 2.3 8.8 2.3 12 0v-5M22 9.5v5"/></svg></span>
+            <div>
+              <h3>Outstanding Bachelor Degree Graduates</h3>
+              <p>2023 · Harbin Institute of Technology, Shenzhen</p>
             </div>
+          </li>
+          <li class="award ic-orange rv">
+            <span class="award-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m12 3 2.75 5.6 6.15.9-4.45 4.35 1.05 6.1L12 17.05 6.5 19.95l1.05-6.1L3.1 9.5l6.15-.9z"/></svg></span>
+            <div>
+              <h3>Baidu AI Star Plan</h3>
+              <p>2020 · Baidu Inc., Beijing</p>
+            </div>
+          </li>
+          <li class="award ic-gold rv">
+            <span class="award-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 4h10v5a5 5 0 0 1-10 0z"/><path d="M17 5.5h2.5V7a3 3 0 0 1-3 3M7 5.5H4.5V7a3 3 0 0 0 3 3M12 14v4M8 20h8"/></svg></span>
+            <div>
+              <h3>ABU Asia-Pacific Robot Contest (ABU Robocon)</h3>
+              <p>2020 · National-level <b>First Prize</b></p>
+            </div>
+          </li>
+          <li class="award ic-silver rv">
+            <span class="award-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="15" r="5.5"/><path d="M9.2 10.2 6.5 3.5h3.8l1.7 3.6 1.7-3.6h3.8l-2.7 6.7"/></svg></span>
+            <div>
+              <h3>NXP Cup National University Students Intelligent Car Race</h3>
+              <p>2020 · National-level <b>Second Prize</b></p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ TEACHING & SERVICE ============ -->
+    <section class="sec band" id="more">
+      <div class="wrap">
+        <div class="sec-head"><h2 class="sec-title rv">Teaching &amp; service.</h2></div>
+        <div class="duo">
+          <article class="ttile rv" id="teaching">
+            <p class="ttile-k">Teaching · Spring 2025</p>
+            <h3>Advanced Topics in Control: Distributed Systems and Control</h3>
+            <p class="ttile-role">Teaching Assistant</p>
+            <p class="ttile-where">Institut für Automatik, ETH Zürich</p>
+            <p class="tags"><span>Control</span><span>Multi-Robot Systems</span></p>
           </article>
-
-          <article class="proj reveal">
-            <a class="proj__media" href="https://github.com/WhiteFireFox/ThermalConvection3D.jl" target="_blank" rel="noopener">
-              <video src="assets/thermal_convection.mp4" autoplay muted loop playsinline preload="metadata" aria-label="3D Thermo-mechanical Convection"></video>
-            </a>
-            <div class="proj__body">
-              <h3 class="proj__title">3D Thermo-mechanical Convection</h3>
-              <p class="proj__sub">Solving Partial Differential Equations in Parallel on GPUs · 2024</p>
-              <p class="proj__desc">A GPU-parallel solver for 3D thermo-mechanical convection, implemented in Julia with distributed multi-GPU computation.</p>
-              <div class="pub__links">
-                <a class="chip" href="https://github.com/WhiteFireFox/ThermalConvection3D.jl" target="_blank" rel="noopener">
-                  <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 1.5a10.5 10.5 0 0 0-3.32 20.46c.52.1.71-.23.71-.5v-1.76c-2.89.63-3.5-1.4-3.5-1.4-.47-1.2-1.15-1.52-1.15-1.52-.94-.64.07-.63.07-.63 1.04.07 1.59 1.07 1.59 1.07.93 1.59 2.43 1.13 3.02.86.1-.67.36-1.13.66-1.39-2.31-.26-4.73-1.15-4.73-5.13 0-1.13.4-2.06 1.07-2.79-.11-.26-.46-1.31.1-2.73 0 0 .87-.28 2.85 1.06a9.9 9.9 0 0 1 5.18 0c1.98-1.34 2.85-1.06 2.85-1.06.56 1.42.21 2.47.1 2.73.67.73 1.07 1.66 1.07 2.79 0 3.99-2.43 4.86-4.74 5.12.37.32.7.95.7 1.92v2.85c0 .27.19.61.72.5A10.5 10.5 0 0 0 12 1.5z"/></svg>
-                  Code
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <article class="proj reveal">
-            <a class="proj__media" href="https://github.com/WhiteFireFox/SFNO_Shallowwater" target="_blank" rel="noopener">
-              <video src="assets/sfno.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Spherical Fourier Neural Operator"></video>
-            </a>
-            <div class="proj__body">
-              <h3 class="proj__title">Modeling Water Flow on the Sphere with Fourier Neural Operator</h3>
-              <p class="proj__sub">AI in the Sciences and Engineering · 2024</p>
-              <p class="proj__desc">A Spherical Fourier Neural Operator (SFNO) that learns shallow-water dynamics on the sphere, capturing global flow patterns.</p>
-              <div class="pub__links">
-                <a class="chip" href="https://github.com/WhiteFireFox/SFNO_Shallowwater" target="_blank" rel="noopener">
-                  <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 1.5a10.5 10.5 0 0 0-3.32 20.46c.52.1.71-.23.71-.5v-1.76c-2.89.63-3.5-1.4-3.5-1.4-.47-1.2-1.15-1.52-1.15-1.52-.94-.64.07-.63.07-.63 1.04.07 1.59 1.07 1.59 1.07.93 1.59 2.43 1.13 3.02.86.1-.67.36-1.13.66-1.39-2.31-.26-4.73-1.15-4.73-5.13 0-1.13.4-2.06 1.07-2.79-.11-.26-.46-1.31.1-2.73 0 0 .87-.28 2.85 1.06a9.9 9.9 0 0 1 5.18 0c1.98-1.34 2.85-1.06 2.85-1.06.56 1.42.21 2.47.1 2.73.67.73 1.07 1.66 1.07 2.79 0 3.99-2.43 4.86-4.74 5.12.37.32.7.95.7 1.92v2.85c0 .27.19.61.72.5A10.5 10.5 0 0 0 12 1.5z"/></svg>
-                  Code
-                </a>
-              </div>
-            </div>
+          <article class="ttile rv" id="service">
+            <p class="ttile-k">Service</p>
+            <h3>Reviewer</h3>
+            <ul class="svc">
+              <li>IEEE Robotics and Automation Letters (RA-L)</li>
+              <li>IEEE International Conference on Robotics and Automation (ICRA)</li>
+            </ul>
           </article>
         </div>
-      </section>
-
-      <!-- ============ EXPERIENCE / CV ============ -->
-      <section class="section" id="education">
-        <div class="section__head reveal">
-          <h2 class="section__title">Education</h2>
-        </div>
-
-        <div class="edu reveal">
-          <div class="timeline">
-            <div class="tl">
-              <div class="tl__row"><h4>ETH Zürich</h4><span class="tl__date">2023 – Present</span></div>
-              <p class="tl__where">M.Sc. in Computational Science and Engineering</p>
-              <ul class="tl__pts">
-                <li>Research Focus: Multi-Robot Systems, Interaction &amp; Coordination in Robotics</li>
-                <li>Current GPA: <strong>5.8 / 6.0</strong></li>
-              </ul>
-            </div>
-            <div class="tl">
-              <div class="tl__row"><h4>Harbin Institute of Technology, Shenzhen</h4><span class="tl__date">2019 – 2023</span></div>
-              <p class="tl__where">B.Eng. in Automation</p>
-              <ul class="tl__pts">
-                <li>Research Focus: SLAM, Cable-Driven Parallel Robots, Reinforcement Learning</li>
-                <li>GPA: <strong>90.3 / 100</strong> · Outstanding Bachelor Degree Graduates</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ============ AWARDS ============ -->
-      <section class="section" id="awards">
-        <div class="section__head reveal">
-          <h2 class="section__title">Honors &amp; Awards</h2>
-        </div>
-        <div class="awards">
-          <div class="award reveal">
-            <span class="award__year">2023</span>
-            <div class="award__body">
-              <h4>Outstanding Bachelor Degree Graduates</h4>
-              <p>Harbin Institute of Technology, Shenzhen</p>
-            </div>
-            <svg class="award__icon" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M8.21 13.89 7 23l5-3 5 3-1.21-9.12"/></svg>
-          </div>
-          <div class="award reveal">
-            <span class="award__year">2020</span>
-            <div class="award__body">
-              <h4>Baidu AI Star Plan</h4>
-              <p>Baidu Inc., Beijing</p>
-            </div>
-            <svg class="award__icon" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M8.21 13.89 7 23l5-3 5 3-1.21-9.12"/></svg>
-          </div>
-          <div class="award reveal">
-            <span class="award__year">2020</span>
-            <div class="award__body">
-              <h4>ABU Asia-Pacific Robot Contest (ABU Robocon)</h4>
-              <p>National-level <span class="badge badge--gold">First Prize</span></p>
-            </div>
-            <svg class="award__icon" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M8.21 13.89 7 23l5-3 5 3-1.21-9.12"/></svg>
-          </div>
-          <div class="award reveal">
-            <span class="award__year">2020</span>
-            <div class="award__body">
-              <h4>NXP Cup National University Students Intelligent Car Race</h4>
-              <p>National-level <span class="badge badge--silver">Second Prize</span></p>
-            </div>
-            <svg class="award__icon" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M8.21 13.89 7 23l5-3 5 3-1.21-9.12"/></svg>
-          </div>
-        </div>
-      </section>
-
-      <!-- ============ TEACHING ============ -->
-      <section class="section" id="teaching">
-        <div class="section__head reveal">
-          <h2 class="section__title">Teaching</h2>
-        </div>
-        <div class="more-list">
-          <div class="more-card reveal">
-            <div class="more-card__aside">
-              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2zM22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
-              <span>Spring 2025</span>
-            </div>
-            <div class="more-card__content">
-              <div class="tl__row"><h4>Advanced Topics in Control: Distributed Systems and Control</h4><span class="tl__date">Teaching Assistant</span></div>
-              <p class="tl__where">Institut für Automatik, ETH Zürich</p>
-              <div class="tags"><span class="tag">Control</span><span class="tag">Multi-Robot Systems</span></div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ============ SERVICE ============ -->
-      <section class="section" id="service">
-        <div class="section__head reveal">
-          <h2 class="section__title">Service</h2>
-        </div>
-        <div class="more-list">
-          <div class="more-card reveal">
-            <div class="more-card__aside more-card__aside--red">
-              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
-              <span>Reviewer</span>
-            </div>
-            <div class="more-card__content">
-              <ul class="svc__list">
-                <li>IEEE Robotics and Automation Letters (RA-L)</li>
-                <li>IEEE International Conference on Robotics and Automation (ICRA)</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
+      </div>
+    </section>
   </main>
 
   <!-- ============ FOOTER ============ -->
-  <footer class="footer">
-    <div class="footer__inner">
-      <div class="footer__left">
-        <span class="footer__name">Zhihao Cao</span>
-        <span class="footer__loc">Zürich, Switzerland</span>
+  <footer class="foot">
+    <div class="wrap">
+      <div class="foot-top">
+        <span class="foot-name">Zhihao Cao</span>
+        <span>Zürich, Switzerland</span>
       </div>
-      <div class="footer__socials">
-        <a href="mailto:m.zhihaocao@gmail.com" aria-label="Email" title="Email"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></a>
-        <a href="https://scholar.google.com/citations?user=wr1bDPoAAAAJ&hl=en" target="_blank" rel="noopener" aria-label="Scholar"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 3 1 9l11 6 9-4.91V17h2V9L12 3z"/><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/></svg></a>
-        <a href="https://github.com/WhiteFireFox" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 1.5a10.5 10.5 0 0 0-3.32 20.46c.52.1.71-.23.71-.5v-1.76c-2.89.63-3.5-1.4-3.5-1.4-.47-1.2-1.15-1.52-1.15-1.52-.94-.64.07-.63.07-.63 1.04.07 1.59 1.07 1.59 1.07.93 1.59 2.43 1.13 3.02.86.1-.67.36-1.13.66-1.39-2.31-.26-4.73-1.15-4.73-5.13 0-1.13.4-2.06 1.07-2.79-.11-.26-.46-1.31.1-2.73 0 0 .87-.28 2.85 1.06a9.9 9.9 0 0 1 5.18 0c1.98-1.34 2.85-1.06 2.85-1.06.56 1.42.21 2.47.1 2.73.67.73 1.07 1.66 1.07 2.79 0 3.99-2.43 4.86-4.74 5.12.37.32.7.95.7 1.92v2.85c0 .27.19.61.72.5A10.5 10.5 0 0 0 12 1.5z"/></svg></a>
-        <a href="https://orcid.org/0000-0003-1840-8947" target="_blank" rel="noopener" aria-label="ORCID"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zM7.37 18.13H5.62V7.71h1.75v10.42zM6.5 6.56a1.02 1.02 0 1 1 0-2.05 1.02 1.02 0 0 1 0 2.05zm11.5 11.57h-1.74v-5.06c0-1.45-.52-2.44-1.81-2.44-.99 0-1.57.66-1.83 1.31-.1.23-.12.55-.12.87v5.32h-1.74s.02-8.63 0-9.52h1.74v1.35c.23-.36.65-.87 1.58-.87 1.15 0 2.01.75 2.01 2.37v6.67z"/></svg></a>
-        <a href="https://www.linkedin.com/in/zhihao-cao-980289285" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45C23.2 24 24 23.23 24 22.28V1.72C24 .77 23.2 0 22.22 0z"/></svg></a>
-      </div>
-      <p class="footer__copy">© <span id="year">2026</span> Zhihao Cao · Last updated June 2026</p>
+      <p class="foot-links">
+        <a href="mailto:m.zhihaocao@gmail.com">Email</a>
+        <a href="https://scholar.google.com/citations?user=wr1bDPoAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>
+        <a href="https://github.com/WhiteFireFox" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://orcid.org/0000-0003-1840-8947" target="_blank" rel="noopener">ORCID</a>
+        <a href="https://www.linkedin.com/in/zhihao-cao-980289285" target="_blank" rel="noopener">LinkedIn</a>
+      </p>
+      <p class="foot-copy">© <span id="year">2026</span> Zhihao Cao · Last updated June 2026</p>
     </div>
   </footer>
 
-  <button class="to-top" id="toTop" aria-label="Back to top" title="Back to top">
-    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
-  </button>
-
-  <div class="toast" id="toast">Copied!</div>
-
-  <script src="js/main.js"></script>
+  <!-- BibTeX sheet -->
+  <dialog class="sheet" id="bibSheet" aria-labelledby="bibTitle">
+    <div class="sheet-head">
+      <h2 id="bibTitle">BibTeX</h2>
+      <button class="pill out" id="bibCopy" type="button">Copy</button>
+      <button class="xbtn" id="bibClose" type="button" aria-label="Close"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2 2l10 10M12 2L2 12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
+    </div>
+    <pre id="bibOut"></pre>
+  </dialog>
 </body>
 </html>
